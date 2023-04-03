@@ -1,0 +1,46 @@
+﻿
+.frame {
+   /* width: 800px;
+    height: 500px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI';
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top:100px;*/
+}
+
+.donationHistoryTable {
+    border-spacing: 0;
+    /*    border-color: black;
+*/
+    font-family: 'Poppins',sans-serif;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 130px;
+    font-size: 13px;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    margin-bottom: 400px;
+}
+
+/*ColName: Column name such as Date*/
+.colName {
+/*    border: 1px solid #c1c1c1;
+*/    text-align: center;
+    height: 38px;
+    font-size: 13px;
+}
+
+/*TitleBackground: ColName Background*/
+.titlebackground {
+    background: #e2e5de;
+    height:35px;
+}
+
+.context {
+    text-align: center;
+    /*border: 1px solid #c1c1c1;*/
+}
+

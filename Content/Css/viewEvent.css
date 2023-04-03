@@ -1,0 +1,113 @@
+﻿.heading {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.desc {
+    color: #393E46;
+    font-size: 14px;
+    font-family: 'roboto',sans-serif;
+}
+
+/*ViewEventTbl: View Table*/
+.viewEventTbl {
+    border-spacing: 0;
+    font-family: 'Segoe UI';
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+/*ColName: Column name such as Date*/
+.colName {
+    color: black;
+/*    border: 1px solid #c1c1c1;*/
+
+}
+
+/*TitleBackground: ColName Background*/
+.titlebackground {
+        background: #ebebeb; /*grey coloe code*/
+    /*background: #BF214B;*/
+}
+
+.contexttitle {
+    color: black;
+    height: 38px;
+    font-family: 'Segoe UI';
+    text-align: center;
+    font-size: 13px;
+}
+
+/*Context: Retrieved Date*/
+.context {
+    /*border: 1px solid #c1c1c1;*/
+    text-align: center;
+    height: 38px;
+    font-size: 13px;
+}
+
+/*AddressContext: Retrieved Address*/
+.addressContext {
+    width: 300px;
+    /*border: 1px solid #c1c1c1;*/
+    text-align:left;
+    padding-left:10px;
+    padding-right:10px;
+
+}
+
+/*EditIcon*/
+.editIcon {
+    width: 15%;
+    margin-left: 7px;
+    cursor: pointer
+}
+
+/*EditIconFrame*/
+.editIconFrame {
+    /*border: 1px solid #c1c1c1;*/
+}
+
+.editbutton {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right:12px;
+}
+
+.crtEventBtn {
+    float: left;
+    width: 137px;
+    height: 37px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #7A0020;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    color: white;
+    cursor: pointer;
+    font-family: 'quicksand';
+    font-size: 16px;
+    margin-top: -40px;
+    margin-left: 997px;
+    padding:0px;
+}
+
+    .crtEventBtn:hover {
+        background: #990f02;
+    }

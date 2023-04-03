@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FYP_BloodModelStoreContainer" CdmEntityContainer="FYP_BloodEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="FYP_BloodModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BloodLevels">
+      <EntityTypeMapping TypeName="FYP_BloodModel.BloodLevel">
+        <MappingFragment StoreEntitySet="BloodLevel">
+          <ScalarProperty Name="AuthorityID" ColumnName="AuthorityID" />
+          <ScalarProperty Name="BloodStockQty" ColumnName="BloodStockQty" />
+          <ScalarProperty Name="BloodLevelID" ColumnName="BloodLevelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

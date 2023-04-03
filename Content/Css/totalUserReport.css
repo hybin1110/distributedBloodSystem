@@ -1,0 +1,131 @@
+﻿.heading {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.desc {
+    color: #393E46;
+    font-size: 14px;
+    font-family: 'roboto',sans-serif;
+}
+
+/*FirstRow: First Row*/
+.firstRow {
+    margin-left:100px;
+}
+
+/*Colon equal to :*/
+.colon{
+    width:20px;
+}
+
+/*Space: Space between To - From*/
+.space{
+    width:120px;
+}
+
+/*TextBox: Date textbox*/
+.textbox {
+    width: 190px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 5px 15px;
+}
+
+/*ViewReportBtn: View Button*/
+.viewReportBtn {
+    width: 140px;
+    height: 35px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #fafafa;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    cursor: pointer;
+    color: white;
+    font-family: 'quicksand';
+    font-size: 16px;
+    margin-left: 40px;
+    text-align: center;
+}
+
+    .viewReportBtn:hover {
+        background: #990f02;
+    }
+
+/*FixedItem equals to the fixed words*/
+.fixedItem{
+    font-weight:bold;
+    width:150px;
+}
+
+
+/*simple report*/
+
+.eventTableList {
+    border-spacing: 0;
+    font-family: 'Segoe UI';
+    margin-left: 0px;
+    width: 950px;
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /*box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);*/
+    /*border: 1px solid #c1c1c1;*/
+    border-radius: 5px;
+}
+
+/*ColName: Column name such as Date*/
+.colName {
+    color: black;
+    border: 1px solid #c1c1c1;
+}
+
+/*TitleBackground: ColName Background*/
+.titlebackground {
+    background: #e2e5de; /*grey coloe code*/
+    /*background: #BF214B;*/
+}
+
+.contexttitle {
+    color: black;
+    height: 38px;
+    font-family: 'Segoe UI';
+    text-align: center;
+    font-size: 13px;
+    border: 1px solid #c1c1c1;
+}
+
+/*Context: Retrieved Date*/
+.context {
+    /*border: 1px solid #c1c1c1;*/
+    text-align: center;
+    height: 38px;
+    font-size: 13px;
+    border: 1px solid #c1c1c1;
+}
+
+.frame1 {
+    width: 950px;
+    /*height: 500px;*/
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    font-family: 'Poppins',sans-serif;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+    margin-top:5px;
+    box-sizing:content-box;
+}

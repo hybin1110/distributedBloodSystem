@@ -1,0 +1,433 @@
+﻿/*--------------------------------------------------------------
+#Hospital Authority Side Bar
+--------------------------------------------------------------*/
+/*Error Label Color*/
+.error {
+    color: #950101;
+}
+
+/*Page Content in render()*/
+.pageContent {
+    /*width: 1270px;*/
+    margin-left: 270px;
+   /* margin-top: 15px;*/
+}
+
+/*Sidebar Navigation*/
+.sidenav {
+    height: 100%;
+    width: 270px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #AAD8D3;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    font-family: 'Segoe UI';
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover, .subTitle:hover {
+    color: darkred;
+}
+
+/* Main content */
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: green;
+    color: #03506F;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 0px;
+    margin-left: 64px;
+}
+
+/*SubTitleDropdown: Dropdown*/
+.subTitleDropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.subTitleDropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: #03506F;
+    padding: 4px 16px; /*top side*/
+    background-color: inherit;
+    font-family: 'Segoe UI';
+    margin: 0;
+    /*margin-left:6px;*/
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: none;
+}
+
+/*dropdown option frame*/
+.dropdown-content {
+    display: none;
+    background-color: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    /*min-width: 20px;*/
+    /*position: absolute;*/
+}
+
+
+/*Dropdown Option*/
+.dropdown-content a {
+    float: none;
+    color: #03506F;
+    font-size: 12px;
+    padding: 4px 48px;
+    text-decoration: none;
+    text-align: left;
+}
+
+
+/*Main title of side nav. Eg.Dashboard*/
+.sideNavtitle {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 17px;
+    color: #03506F;
+    margin-left: 32px;
+}
+
+/*Sub-Title of side nav. Eg.Create Event*/
+.subTitle {
+    line-height: 2px;
+    color: #03506F;
+    font-size: 15px;
+    margin-left: 7px;
+    color: #03506F;
+}
+
+/*Sub Title Icon*/
+.subTitleICon {
+    color: black !important;
+    margin-left: 18px;
+}
+
+/*Group for each main NavTitle*/
+.titleGroup {
+    margin-bottom: 10px;
+}
+
+/*ClassName for title required dropdown*/
+.titleGroupDropdown {
+    margin-bottom: 40px;
+}
+
+/*BloodDonationLineSpace: Spacing between lines*/
+.bloodDonationLineSpace {
+    line-height: 10px;
+}
+
+/*Header: Top Header*/
+.hos-header {
+    margin-left: 262px;
+    margin-top: 0px;
+    height: 80px;
+    overflow: hidden;
+    background-color: #E4E8F5;
+    padding: 0px 10px;
+    font-family: 'Segoe UI'
+}
+
+/*CurrentTime*/
+.hos-currentTime {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/*Header-right: Top header right side*/
+.hos-header-right {
+    float: right;
+    margin-top: -10px;
+    margin-right: 10px;
+}
+
+/*LoggedOn: Logged on sentences*/
+.loggedOn {
+    font-size: 15px;
+}
+
+/*Logout: Log out details*/
+.logout {
+    font-size: 15px;
+    color: #4b7dab;
+    cursor: pointer;
+}
+
+    .logout:hover {
+        color: #990f02 !important;
+    }
+
+/*Sign out icon*/
+.fa-sign-out {
+    margin-left: 184px;
+}
+
+/*Current Time*/
+.currentTime {
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+
+/*--------------------------------------------------------------
+# Main-content
+--------------------------------------------------------------*/
+input {
+    box-shadow: none !important;
+}
+
+    input:focus {
+        border: 1px solid black !important ;
+    }
+
+.main-content {
+    height: 45rem;
+    background-color: #f8f9fc;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    border: 1px solid rgba(0, 0, 0, .05);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: .375rem;
+    background-color: #fff;
+    background-clip: border-box;
+}
+
+
+.card-header {
+    margin-bottom: 0;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    background-color: #fff;
+}
+
+form{
+    align-items: normal !important;
+}
+
+#search-addon{
+    background-color: transparent !important;
+}
+
+/*--------------------------------------------------------------
+# Hospital Dashboard
+--------------------------------------------------------------*/
+.border-left-first {
+    border-left: .25rem solid #EA5E80 !important;
+}
+
+.border-left-second {
+    border-left: .25rem solid #4e73df !important
+}
+
+.summary-card-header {
+    font-size: 0.7rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.heading {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.upperframe {
+    width: 250px;
+    height: 120px;
+    background-color: #fa6b8a;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+/*searched result table*/
+.eventTable {
+    width: 65%;
+    /*    table-layout: fixed;*/
+    border: 1px;
+    border-color: transparent;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 3px 3px #B4B4B4;
+    background-color: #f4f7f7;
+    font-family: 'Segoe UI';
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+/*icon image*/
+.image img {
+    width: 60%;
+}
+
+/*date,address*/
+.detail {
+    font-size: 13px;
+    color: #666766;
+    height: 10px;
+    line-height: 15px;
+}
+
+.eventTitle {
+    font-size: 17px;
+    height: 10px;
+}
+
+.space {
+    height: 5px;
+}
+
+/*--------------------------------------------------------------
+# Blood Level Management Page
+--------------------------------------------------------------*/
+.authority-title {
+    color: #03506F;
+    font-family: "Poppins", sans-serif;
+}
+
+.authority-desc {
+    color: #393E46;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.authority-heading {
+    color: #03506F;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-authority {
+    border-radius: 10px !important;
+    border: 1px solid #BF214B !important;
+    background-color: #BF214B !important;
+    color: #FFFFFF !important;
+    font-size: 12px !important;
+    padding: 10px 45px ;
+    margin: 12px;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    transition: transform 80ms ease-in !important;
+    font-family: Quicksand, serif !important;
+}
+
+    .btn-authority:hover {
+        background: #990f02 !important;
+    }
+
+/*--------------------------------------------------------------
+# Blood Quality
+--------------------------------------------------------------*/
+
+.quality-records-desc {
+    font-weight: 1000;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*.quality-records{
+    margin-left:80px;
+}*/
+
+#searchdonorid-error{
+    margin:5px;
+}
+
+#printlink {
+    color: #03506F;
+}
+
+    #printlink:hover {
+        color: #BF214B
+    }
+
+.formimput-desc{
+    font-weight:500;
+}
+
+/*--------------------------------------------------------------
+#Report
+--------------------------------------------------------------*/
+
+.viewReportBtn {
+    width: 140px;
+    height: 35px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #fafafa;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    cursor: pointer;
+    color: white;
+    font-family: 'quicksand';
+    font-size: 16px;
+    margin-left: 40px;
+    text-align: center;
+}
+
+#ReportViewer1_fixedTable{
+    margin-left:15rem !important;
+}
+
+
+/*--------------------------------------------------------------
+#Media
+--------------------------------------------------------------*/
+@media print {
+    body {
+        margin: 0;
+        color: #000;
+        background-color: #fff;
+    }
+
+    header, .sidenav, .header, #printlink, .quality-listing-heading, .quality-listing-searchbox, .hos-currentTime, .logout, .loggedOn {
+        display: none;
+    }
+
+    #quality-records-container {
+        margin-left: -7rem;
+    }
+}
+

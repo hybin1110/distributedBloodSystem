@@ -1,0 +1,92 @@
+﻿.heading {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.desc {
+    color: #393E46;
+    font-size: 14px;
+    font-family: 'roboto',sans-serif;
+}
+
+/*ApptTble: Appointment table*/
+.apptTbl {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    border-spacing: 0;
+    font-family: 'Segoe UI';
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+}
+
+/*ColName: Column name. Eg.Donor ID, Date etc*/
+.contexttitle {
+    color: black;
+    height: 38px;
+    font-family: 'Segoe UI';
+    font-size: 13px;
+}
+
+.colName {
+   /* border: 1px solid #c1c1c1;*/
+}
+
+.editbutton {
+    text-align: center;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    padding-left:32px;
+}
+
+/*TitleBackground: ColName Background*/
+.titlebackground {
+    background: #ebebeb;
+    /*background: #BF214B;*/
+}
+
+/*Context: Retrieved data*/
+.context {
+    /*border: 1px solid #c1c1c1;*/
+    text-align: center;
+    height: 38px;
+    font-size: 13px;
+}
+
+/*Dropdown: "Progress" Dropdown. Eg. Completed/Pending */
+.dropdown {
+    border:none;
+    color:#BF214B;
+    font-weight:bold;
+}
+
+.saveChangesBtn {
+    float: left;
+    width: 137px;
+    height: 37px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #7A0020;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    color: white;
+    cursor: pointer;
+    font-family: 'quicksand';
+    font-size: 16px;
+    margin-top: -40px;
+    margin-left: 997px;
+}
+
+
+    .saveChangesBtn:hover {
+        background: #990f02;
+    }

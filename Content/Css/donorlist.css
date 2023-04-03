@@ -1,0 +1,148 @@
+﻿.heading {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.desc {
+    color: #393E46;
+    font-size: 14px;
+    font-family: 'roboto',sans-serif;
+}
+
+.donorListTbl {
+    border-spacing: 0;
+    font-family: 'Segoe UI';
+    margin-left: auto;
+    margin-right: auto;
+    width: 999px;
+    table-layout: fixed;
+    font-size: 13px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+/*ColName: Column name such as Date*/
+.colName {
+    color: black;
+   /* border: 1px solid #c1c1c1;*/
+}
+
+/*TitleBackground: ColName Background*/
+.titlebackground {
+    background: #ebebeb; 
+    /*background: #BF214B;*/
+}
+
+.contexttitle {
+    color: black;
+    height: 38px;
+    font-family: 'Segoe UI';
+    text-align: center;
+    font-size: 13px;
+}
+
+/*Context: Retrieved Date*/
+.context {
+    /*border: 1px solid #c1c1c1;*/
+    text-align: center;
+    height: 38px;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.DecryptBtn {
+    float: left;
+    width: 137px;
+    height: 37px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #7A0020;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    color: white;
+    cursor: pointer;
+    font-family: 'quicksand';
+    font-size: 16px;
+    margin-top: -40px;
+    margin-left: 997px;
+    padding:0px;
+}
+
+    .DecryptBtn:hover {
+        background: #990f02;
+    }
+
+.contextresult {
+    text-align: center;
+    height: 38px;
+    font-size: 13px;
+    padding: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#Div2 {
+    display: none;
+}
+
+.Div2 {
+    width: 500px;
+    height: 150px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI';
+    padding: 20px;
+    margin-left: 125px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    box-sizing:content-box;
+}
+
+.textbox {
+    width: 50%;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: /*#F4F7F7*/white;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 12px 20px;
+    font-family:'Segoe UI';
+
+}
+
+.submitbtn {
+    float: left;
+    width: 137px;
+    height: 37px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #7A0020;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    color: white;
+    cursor: pointer;
+    font-family: 'quicksand';
+    font-size: 16px;
+    margin-left: 360px;
+}
+
+
+    .submitbtn:hover {
+        background: #990f02;
+    }

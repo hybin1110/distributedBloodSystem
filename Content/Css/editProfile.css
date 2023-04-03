@@ -1,0 +1,73 @@
+﻿/*Entire page*/
+.page {
+    /*width: 1200px;*/
+    margin-top:140px;
+}
+
+.frame {
+    width: 800px;
+    height: 550px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+.textbox {
+    width: 98%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    max-width:360px;
+}
+
+.half{
+    width:50%;
+}
+
+.saveChangesBtn {
+    width: 50%;
+    height: 40px;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 23%;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #fafafa;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    font-family: 'quicksand';
+}
+
+    .saveChangesBtn:hover {
+        background: #990f02;
+    }
+
+.radioformat {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.radioformat1 {
+    margin-left: 40px;
+    margin-right: 5px;
+}
+
+
+.text-danger {
+    color: #950101;
+}

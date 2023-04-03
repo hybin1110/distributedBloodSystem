@@ -1,0 +1,184 @@
+﻿
+/*Entire page*/
+.page {
+    margin-top: 140px;
+}
+
+/*Appointment Letter*/
+.flexbox-container {
+    width: 748px;
+    height: 35px;
+    margin: auto;
+    display: flex;
+    background: #e0e0e0;
+    font-family: 'Poppins',sans-serif;
+    border: 1px solid #9e9e9e;
+    border-radius: 3px 3px 0px 0px;
+}
+
+.flexbox-item {
+    margin-left: 18px;
+    margin-top: 5px;
+}
+
+/*Appointment Details flexbox*/
+.flexbox-container1 {
+    width: 748px;
+    height: 100%;
+    margin-top: 35px;
+    margin: auto;
+    display: flex;
+    background: white;
+    font-family: 'Poppins',sans-serif;
+    flex-direction: column;
+    border: 1px solid #9e9e9e;
+    border-top: none;
+}
+
+/*Location*/
+.flexbox-item2 {
+    margin-left: 18px;
+    margin-top: 5px;
+}
+
+/*Line Break*/
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+/*Date Time*/
+.flexbox-item3 {
+    margin-left: 18px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+/*Time Slot:*/
+.flexbox-item4 {
+    margin-left: 18px;
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+/*Check Box Form*/
+.flexbox-container2 {
+    width: 748px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    background: white;
+    font-family: 'Poppins',sans-serif;
+    font-size: 13px;
+    flex-direction: row;
+    border: 1px solid #9e9e9e;
+    border-top: none;
+    border-radius: 0px 0px 3px 3px;
+}
+
+.space {
+    height: 5px;
+}
+
+.left_col {
+    margin-left: 18px;
+
+}
+
+.radio label {
+    display: block;
+    float: left;
+    padding-right: 3px;
+    white-space: nowrap;
+}
+
+.radio input {
+    vertical-align: middle;
+}
+.radio label span {
+    vertical-align: middle;
+    font-size: 29px;
+}
+
+
+.reminder {
+    font-size: 11px;
+/*  color: #BF214B;*/    
+    margin-top:35px;
+}
+
+.table1rightcol{
+padding-left:40px;
+}
+
+/*table 1*/
+.colon {
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.table2rightcol {
+    padding-left: 94px;
+    margin-bottom:10px
+}
+
+.submitButton {
+    width: 100px;
+    height: 34px;
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #fafafa;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+}
+
+
+    .submitButton:hover {
+        background: #990f02;
+    }
+
+
+
+.buttonPosition{
+    margin-left:610px;
+    margin-bottom:15px;
+}
+
+
+.radioformat {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top:5px;
+}
+
+.frame {
+    width: 860px;
+    height: 500px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    font-family: 'Poppins',sans-serif;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.barline {
+    height: 3px;
+    width: 280px;
+    background-color: #BF214B;
+    margin-bottom: 15px;
+    margin-left:14px;
+}
+
+
+.text-danger {
+    color: #950101;
+}
+
+.submitButton {
+    font-family: 'quicksand';
+}

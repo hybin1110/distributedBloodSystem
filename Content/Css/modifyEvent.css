@@ -1,0 +1,107 @@
+﻿.heading {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.desc {
+    color: #393E46;
+    font-size: 14px;
+    font-family: 'roboto',sans-serif;
+}
+
+/*Frame: Back frame*/
+.frame {
+    width: 858px;
+    height: 460px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI';
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+    box-sizing: content-box;
+}
+
+/*Textbox: Input Textbox*/
+.textbox {
+    width: 98%;
+    height: 45px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /*background: #F4F7F7;*/
+    background:white;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 12px 20px;
+    max-width:360px;
+}
+
+/*TextboxAdd: Address Textbox*/
+.textboxAdd {
+    width: 360px;
+    height: 125px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    /*background: #F4F7F7;*/
+    background: white;
+    display: inline-block;
+    margin: 8px 0;
+    padding: 12px 20px;
+    font-family: 'Segoe UI';
+    max-width: 360px;
+}
+
+/*ModifyEventBtn: Modify Button*/
+.modifyEventBtn {
+    width: 137px;
+    height: 40px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #7A0020;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    color: white;
+    cursor: pointer;
+    font-family: 'quicksand';
+    font-size: 16px;
+    margin-top: 80px;
+    margin-left: 170px;
+}
+
+    .modifyEventBtn:hover {
+        background: #990f02;
+    }
+    /*AddressTitle: Address Title*/
+    .addressTitle {
+        vertical-align: top
+    }
+
+.text-danger {
+    font-size: 13px;
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.coltitle {
+    margin-left: 18px;
+}
+
+.colwidth {
+    width:500px;
+}
+
+
+.text-danger {
+    color: #950101;
+}

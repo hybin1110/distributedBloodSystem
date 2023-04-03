@@ -1,0 +1,129 @@
+﻿/*Entire page*/
+.page{
+    margin-top:140px;
+}
+
+/*Profile Table*/
+.ProfileTable {
+    font-family: 'Poppins',sans-serif;
+    /*border: 1px solid #aaaaaa;*/
+    width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+}
+
+/*Profile Table:Title Bar*/
+.profileTitleBar {
+    width: 600px;
+    height: 35px;
+    background: #e0e0e0;
+}
+
+/*Profile Table:Title*/
+.title {
+    margin-left: 18px;
+    font-size: 18px;
+    float:left;
+}
+
+/*Profile Table: 2nd Row*/
+.profileDetail {
+    border: 1px solid #aaaaaa;
+    /*  border-left: none;
+    border-right: none;*/
+    background: white;
+    border-bottom: none;
+}
+
+/*Personal Info Table: User detail info*/
+.personalDetails {
+    font-size: 14px;
+    color: #333333;
+    margin-left:100px;
+    line-height:45px;
+}
+
+.personalDetailsAdd {
+    font-size: 14px;
+    color: #333333;
+    margin-left: 100px;
+    
+}
+
+.info {
+    width: 150px;
+}
+
+.info span{
+    margin-left:16px;
+}
+
+.bulletspace {
+    width: 10px;
+}
+/*Appointment Table*/
+.AppointmentTable {
+    width: 780px;
+    height: 250px;
+    /*border: 1px solid #aaaaaa;*/
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+/*Appointment Table: Title Bar*/
+.AppointmentTitleBar {
+    height: 35px;
+    background: #e0e0e0;
+}
+
+/*Appointment Table: Appt Detail*/
+.appointmentDetails {
+    font-size: 14px;
+    color: #333333;
+}
+
+.apptinfo{
+    width:250px;
+}
+/*Appointment Table: All Button*/
+.profileButton {
+    width: 200px;
+    height: 40px;
+    color: white;
+    font-family: 'Poppins',sans-serif;
+    font-size: 13px;
+    float: right;
+    text-align: center;
+    margin-right: 15px;
+    margin-bottom: -6px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #fafafa;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    font-family: 'quicksand';
+}
+    .profileButton:hover {
+        background: #990f02;
+    }
+
+
+
+.editbutton {
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 5px;
+}
+
+
+.addresstxt{
+    line-height:2px;
+}

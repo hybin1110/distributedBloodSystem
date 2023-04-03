@@ -1,0 +1,192 @@
+﻿/*Page Content in render()*/
+.pageContent {
+    width: 1270px;
+    margin-left: 270px;
+    margin-top: 15px;
+}
+
+/*Sidebar Navigation*/
+.sidenav {
+    height: 100%;
+    width: 270px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #AAD8D3;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+    /* Style the sidenav links and the dropdown button */
+    .sidenav a, .dropdown-btn {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        display: block;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        outline: none;
+        font-family: 'Segoe UI';
+    }
+
+        /* On mouse-over */
+        .sidenav a:hover, .dropdown-btn:hover, .subTitle:hover {
+            color: darkred;
+        }
+
+body {
+    margin: 0;
+}
+
+/* Main content */
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+    background-color: green;
+    color: #03506F;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+    float: right;
+    padding-right: 0px;
+    margin-left: 64px;
+}
+
+/*SubTitleDropdown: Dropdown*/
+.subTitleDropdown {
+    float: left;
+    overflow: hidden;
+}
+
+    .subTitleDropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: #03506F;
+        padding: 4px 16px; /*top side*/
+        background-color: inherit;
+        font-family: 'Segoe UI';
+        margin: 0;
+        /*margin-left:6px;*/
+    }
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: none;
+}
+
+/*dropdown option frame*/
+.dropdown-content {
+    display: none;
+    background-color: none;
+    z-index: 1;
+    margin-left: 9px;
+    /*min-width: 20px;*/
+    /*position: absolute;*/
+    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
+}
+
+
+    /*Dropdown Option*/
+    .dropdown-content a {
+        float: none;
+        color: #03506F;
+        font-size: 12px;
+        padding: 4px 48px;
+        text-decoration: none;
+        text-align: left;
+    }
+
+
+/*Main title of side nav. Eg.Dashboard*/
+.sideNavtitle {
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    font-size: 17px;
+    color: #03506F;
+    margin-left: 32px;
+}
+
+/*Sub-Title of side nav. Eg.Create Event*/
+.subTitle {
+    line-height: 2px;
+    color: #03506F;
+    font-size: 15px;
+    margin-left: 7px;
+    color: #03506F;
+}
+
+/*Sub Title Icon*/
+.subTitleICon {
+    color: black !important;
+    margin-left: 18px;
+}
+
+/*Group for each main NavTitle*/
+.titleGroup {
+    margin-bottom: 10px;
+}
+
+/*ClassName for title required dropdown*/
+.titleGroupDropdown {
+    margin-bottom: 40px;
+}
+
+/*BloodDonationLineSpace: Spacing between lines*/
+.bloodDonationLineSpace {
+    line-height: 10px;
+}
+
+/*Header: Top Header*/
+.header {
+    margin-left: 262px;
+    margin-top: 0px;
+    height: 80px;
+    overflow: hidden;
+    background-color: #E4E8F5;
+    padding: 0px 10px;
+    font-family: 'Segoe UI'
+}
+
+/*CurrentTime*/
+.currentTime {
+    margin-top: 20px;
+}
+
+/*Header-right: Top header right side*/
+.header-right {
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
+}
+
+/*LoggedOn: Logged on sentences*/
+.loggedOn {
+    font-size: 15px;
+}
+
+/*Logout: Log out details*/
+.logout {
+    font-size: 15px;
+    color: darkred;
+    cursor: pointer;
+}
+
+/*Sign out icon*/
+.fa-sign-out {
+    margin-left: 184px;
+}
+
+/*Current Time*/
+.currentTime {
+    font-weight: bold;
+    margin-left: 20px;
+}

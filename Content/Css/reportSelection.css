@@ -1,0 +1,47 @@
+﻿/*Heading: Include title & desc*/
+.heading {
+    margin-left: 30px;
+    margin-top:20px;
+}
+
+/*Title:Page title. Eg.View Report*/
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.desc {
+    color: #393E46;
+    font-size: 14px;
+    font-family: 'roboto',sans-serif;
+}
+
+/*Class for both report*/
+.ReportType {
+    margin-left: 240px;
+    margin-top:-90px;
+}
+
+/*Report Type Button*/
+.reportBtn {
+    width: 350px;
+    height: 350px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    cursor: pointer;
+    font-family: 'Poppins',sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
+
+    .reportBtn:hover {
+        background-color: #f5f5f5;
+    }

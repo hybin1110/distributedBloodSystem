@@ -1,0 +1,75 @@
+﻿/*Entire page*/
+.page {
+    width: 1200px;
+    margin-top: 140px;
+}
+
+
+.resultTitle {
+    font-family: 'Poppins',sans-serif;
+    font-size: 6px;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* table*/
+.searchResult {
+    width: 70%;
+    border: 1px;
+    border-radius: 10px 10px 10px 10px;
+    border-color: #fafafa;
+    background-color: #f4f7f7;
+    box-shadow: 2px 4px 8px 4px rgba(0,0,0,0.2);
+    font-family: 'Segoe UI';
+    margin-left: auto;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+/*icon image*/
+.image img {
+    width: 60%;
+}
+
+/*title*/
+.eventTitle {
+    font-size: 18px;
+    height:35px;
+}
+
+.space {
+    height: 5px;
+}
+
+/*date,address*/
+.detail {
+    font-size: 13px;
+    color: #666766;
+    height: 10px;
+    line-height: 20px;
+}
+
+/*schedule appt button*/
+.scheduleButton {
+    width: 199px;
+    height: 37px;
+    color: white;
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #fafafa;
+    box-shadow: 2px 3px 3px #B4B4B4;
+    background-color: #BF214B;
+    font-family:''quicksand;
+}
+
+    .scheduleButton:hover {
+        background: #990f02;
+    }
+
+
+

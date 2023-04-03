@@ -1,0 +1,59 @@
+﻿.heading {
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+.title {
+    color: #03506F;
+    font-weight: bold;
+    font-size: 18.72px;
+    font-family: 'Poppins',sans-serif;
+}
+
+.upperframe {
+    width: 250px;
+    height: 120px;
+    background-color: #fa6b8a;
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+/*searched result table*/
+.eventTable {
+    width: 85%;
+    /*    table-layout: fixed;*/
+    border: 1px;
+    border-color: transparent;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 2px 3px 3px #B4B4B4;
+    background-color: #f4f7f7;
+    font-family: 'Segoe UI';
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+/*icon image*/
+.image img {
+    width: 60%;
+}
+
+/*date,address*/
+.detail {
+    font-size: 13px;
+    color: #666766;
+    height: 10px;
+    line-height: 15px;
+}
+
+.eventTitle {
+    font-size: 17px;
+    height: 10px;
+}
+
+.space {
+    height: 5px;
+}

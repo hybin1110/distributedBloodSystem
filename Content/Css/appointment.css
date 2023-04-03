@@ -1,0 +1,112 @@
+﻿/*Entire page*/
+.page {
+    width: 800px;
+    /*height: 500px;*/
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+    font-family: 'Poppins',sans-serif;
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+    margin-top: 150px;
+}
+
+
+.locationPic img {
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);
+}
+
+/*Appointment Letter*/
+.flexbox-container {
+    width: 748px;
+    height: 35px;
+    margin: auto;
+    display: flex;
+    background: #e0e0e0;
+    font-family: 'Poppins',sans-serif;
+    /*border: 1px solid #9e9e9e;*/
+    border-radius: 3px 3px 0px 0px;
+    /*box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);*/
+}
+
+.flexbox-item {
+    margin-left:18px;
+    margin-top:5px;
+}
+
+/*Appointment Details*/
+.flexbox-container1 {
+    width: 748px;
+    height: 100%;
+    margin-top: 35px;
+    margin: auto;
+    display: flex;
+    background: white;
+    font-family: 'Poppins',sans-serif;
+    flex-direction: column;
+    border-top: none;
+    border-radius: 0px 0px 3px 3px;
+    /*box-shadow: 0 4px 8px 4px rgba(0,0,0,0.2);*/
+    border: 1px solid #c1c1c1;
+}
+
+/*Location*/
+.flexbox-item2 {
+    margin-left: 18px;
+    margin-top: 5px;
+    font-family: 'Poppins',sans-serif;
+}
+
+
+    .p-2 button:hover {
+        background: white;
+    }
+
+/*Textbox: Input Textbox*/
+.textbox {
+    width: 25%;
+    height: 35px;
+    margin-left:0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background: #F4F7F7;
+    display: inline-block;
+    padding: 10px 10px;
+    margin-bottom:20px;
+}
+
+
+.hidetextbox
+{
+    border:hidden;
+    color:transparent;
+    width:0px;
+}
+
+.proceedBtn {
+    width: 137px;
+    height: 40px;
+    border: 1px #BF214B;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #7A0020;
+    box-shadow: 2px 2px #B4B4B4;
+    background-color: #BF214B;
+    color: white;
+    cursor: pointer;
+    font-family: 'Poppins',sans-serif;
+    font-size: 16px;
+    margin-left: 570px;
+    margin-bottom: 15px;
+    font-family:'quicksand';
+}
+
+    .proceedBtn:hover {
+        background: #990f02;
+    }
