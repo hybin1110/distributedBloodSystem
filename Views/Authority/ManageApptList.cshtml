@@ -1,0 +1,55 @@
+﻿@model IEnumerable<FYP_Blood.Models.Appointment>
+
+@{
+    ViewBag.Title = "ManageApptList";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/manageApptList.css" rel="stylesheet" />
+</head>
+
+
+<div class="main-content">
+    <div class="page">
+        <div class="row p-3">
+            <h3><span class="authority-title">Appointment List</span></h3>
+            <span class="authority-desc fw-bolder">Manage blood donation appointment compleness.</span>
+        </div>
+
+        <div>
+            <table class="apptTbl">
+                <tr class="colName titlebackground">
+                    <th class="contexttitle" style="padding-left: 20px;">Appointment ID</th>
+                    @*<th class="contexttitle">USER ID</th>*@ @*ADD ON USER ID EASIER TO CHECK*@
+                    <th class="contexttitle" style="padding-left: 20px;">Event Location</th>
+                    <th class="contexttitle" style="text-align:center;">Donation Date</th>
+                    <th class="contexttitle" style="text-align:center;">Time Slot</th>
+                    <th class="contexttitle" style="text-align:center;">Status</th>
+                    <th class="contexttitle" style="text-align:center;">Action</th>
+
+                </tr>
+
+
+
+                @foreach (var appt in Model)
+                {
+                    <tr class="colName">
+
+                        <td class="context" style="width:145px;"><b>@appt.apptId</b></td>
+                        @*<td class="context" style="width:93px;">@appt.userId</td>*@@*ADD ON USER ID EASIER TO CHECK*@
+                        <td class="context" style="width:350px;text-align:left;padding-left:20px;">@appt.e_location</td>
+                        <td class="context" style="width: 150px; text-align: center;">@appt.eventdate.ToString("dd MMM yyyy")</td>
+                        <td class="context" style="width: 150px; text-align: center;">@appt.apptTimeSlot</td>
+                        <td class="context" style="width: 120px; text-align: center;">@appt.status</td>
+                        <td class="editIconFrame"><button class="editbutton" onclick="location.href='@Url.Action("UpdateDonationStatus", "Authority", new { id = appt.apptId })'"><i class="fa fa-pencil-square-o fa-lg editIcon" aria-hidden="true"></i></button></td>
+
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

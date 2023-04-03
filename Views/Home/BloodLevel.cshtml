@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "BloodLevel";
+}
+
+<div class="container-fluid blood-level-container">
+    <div class="row">
+        <h2 class="d-flex justify-content-center blood-level-title">Blood Level Statistics<br /></h2>
+        <p class="d-flex justify-content-center text-center blood-level-desc">
+            There is no substitude for blood. A part of Blood+ objectives is to encourage regular blood donors to continue donate blood
+            and motivate people in good health who have never given blood to begin doing so. Keep yourself updated with the latest blood
+            supply level in Penang, Malaysia and start to participate in blood donation before the blood supply drops to critical level.
+            Let’s move towards to a sustainable blood supply in Malaysia.
+        </p>
+    </div>
+    <div class="row">
+        <div class="container-fluid blood-level-content">
+            <div class="wrapper">
+                <div class="c100 p100 blue" id="bloodbar" ng-repeat="bloodlvlrc in bloodlvlrec">
+                    <span>{{((bloodlvlrc.bloodqty / 3000) *100).toFixed(0)}}%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper row">
+                <p class="col-2 ml-3" style="margin-left: 80px; color: white;" ng-repeat="bloodlvlrc in bloodlvlrec">
+                    {{bloodlvlrc.hosname}} <br />{{bloodlvlrc.bloodqty}} Packs
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        *Data provided by Blood+ Hospital Partners and measurement is based on the blood bank capacity of each hospital.
+    </div>
+</div>
+
+

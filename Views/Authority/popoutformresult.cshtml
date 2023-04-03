@@ -1,0 +1,68 @@
+﻿@model IEnumerable<FYP_Blood.Models.User>
+
+@{
+
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+}
+
+<head>
+    <link href="~/Content/Css/donorlist.css" rel="stylesheet" />
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>*@
+</head>
+
+<div class="page">
+
+
+
+    <div>
+
+        @if (ViewBag.Alert != null)
+        {
+            <script type="text/javascript">
+                        window.onload = function () {
+                                alert("@ViewBag.Alert");
+                                window.location.href = '@Url.Action("donorlist", "Authority")';
+                    };
+            </script>
+        }
+        else
+        {
+            <div class="heading">
+
+                <span class="title">Donor List</span><br />
+                <span class="desc">Prompt details of the donor.</span>
+            </div>
+
+            <table class="donorListTbl">
+                <tr class="colName titlebackground">
+                    <th class="contexttitle" style="padding-left:10px;padding-right:10px;">USER ID</th>
+                    <th class="contexttitle">NAME</th>
+                    <th class="contexttitle">IC</th>
+                    <th class="contexttitle">CONTACT</th>
+                    <th class="contexttitle">EMAIL</th>
+                    <th class="contexttitle">GENDER</th>
+                    <th class="contexttitle">BLOOD TYPE</th>
+
+                </tr>
+
+                @foreach (var us in Model)
+                {
+                    <tr>
+                        <td class="contextresult">@us.userId</td>
+                        <td class="contextresult">@us.name</td>
+                        <td class="contextresult">@us.nricNo</td>
+                        <td class="contextresult">@us.contactNo</td>
+                        <td class="contextresult">@us.email</td>
+                        <td class="contextresult">@us.gender</td>
+                        <td class="contextresult">@us.bloodType</td>
+
+                    </tr>
+                }
+
+            </table>
+        }
+
+    </div>
+</div>
+
+

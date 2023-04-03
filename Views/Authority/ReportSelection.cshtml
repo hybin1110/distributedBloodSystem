@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "ReportSelection";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+}
+
+<head>
+    <link href="~/Content/Css/reportSelection.css" rel="stylesheet" />
+</head>
+
+<div class="main-content">
+    <div class="row p-3">
+        <h3><span class="authority-title">View Report</span></h3>
+        <span class="authority-desc fw-bolder">Prompt the selection of report type.</span>
+    </div>
+   
+    <div>
+        <div class="ReportType">
+            <button class="reportBtn" style="margin-left:20px;" onclick="location.href='@Url.Action("TotalUserReport", "Authority")'"><i class="fa fa-address-book subTitleICon" aria-hidden="true"></i> Total User Registered for Blood Donation</button>
+        </div>
+    </div>
+</div>
+
+

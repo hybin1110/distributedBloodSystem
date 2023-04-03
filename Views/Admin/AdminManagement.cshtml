@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "AdminManagement";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row p-3">
+            <h3><span class="authority-title">User Management - Hospital Authority</span></h3>
+            <span class="authority-desc fw-bolder"> Manage hospital authority account.</span>
+        </div>
+        <div class="row jumbotron vertical-center">
+            <div class="container card col-xl-10">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3 authority-heading">New Hospital Authority Account</div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <form id="authorityAccount" name="authorityAccount" class="justify-content-start">
+                        <div class="row">
+                            <label for="hosName" class="col-sm-3 col-form-label formimput-desc">Hospital Name</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="text" placeholder="Island Hospital" id="hosName" name="hosName" ng-model="hosAccount.name">
+                            </div> 
+                            <label for="hosDept" class="col-sm-2 col-form-label formimput-desc">Department</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="text" placeholder="Blood Department" id="hosDept" name="hosDept" ng-model="hosAccount.dept">
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row pt-3">
+                            <label for="hosUsername" class="col-sm-3 col-form-label formimput-desc">Username</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="text" placeholder="Island@Blood" id="hosUsername" name="hosUsername" ng-model="hosAccount.username">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <label for="hosPass" class="col-sm-3 col-form-label formimput-desc">Password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="hosPass" name="hosPass">
+                            </div>
+                            <label for="hosConfirmPass" class="col-sm-2 col-form-label formimput-desc">Confirm Password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="hosConfirmPass" name="hosConfirmPass" ng-model="hosAccount.password">
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <button class="btn-authority col-sm-2" ng-click="saveHosAcc()">SAVE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

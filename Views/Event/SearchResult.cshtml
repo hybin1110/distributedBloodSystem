@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FYP_Blood.Models.Event>
+
+@{
+
+    ViewBag.Title = "SearchResult";
+}
+
+<head>
+    <link href="~/Content/Css/searchResult.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+</head>
+
+<div class="page">
+   
+        @if (Model.Count() == 0)
+        {          
+            <div>
+                <div style="width: 500px; display: flex;">
+                    <img src="~/Content/images/EventNotFound.png" style="width:600px;margin-left:210px;margin-top:60px;">
+                </div>
+
+            <div style="font-weight: bold; font-family: 'Poppins',sans-serif; color: black; font-size: 25px; margin-left: 800px; margin-top: -250px; margin-bottom: 280px; ">
+                    Opps! Result Not Found...
+                </div>
+            </div>
+        }
+        else
+        {
+            <table  class="searchResult" border="1">
+                <caption style="font-size: 25px; text-align: center; font-weight: bold; font-family: 'Poppins',sans-serif; color: black; caption-side: top;">-Result Found-</caption>
+
+                @foreach (var ev in Model)
+                {
+
+                    <tr class="space"></tr>
+
+                    <tr class="eventTitle">
+                        <td class="image" rowspan="4" width="100px" align="center">
+                            <img src="~/Content/images/BloodIcon1.png" />
+                        </td>
+
+                        <td width="400px"><b>@ev.e_location</b></td>
+
+                        <td width="200px" rowspan="4" align="center">
+                            <button class="scheduleButton" type="button" onclick="location.href='@Url.Action("Appointment", "Appointment", new { id = ev.e_id })'">Schedule an Appointment</button>
+                        </td>
+                    </tr>
+
+                    <tr class="detail">
+                        <td>@ev.e_date.ToString("MMMM dd,yyyy (ddd)")  @ev.e_startTime.ToString("hh:mm tt") - @ev.e_endTime.ToString("hh:mm tt")</td>
+                    </tr>
+
+                    <tr class="detail">
+                        <td>@ev.e_address</td>
+                    </tr>
+                    <tr class="space"></tr>
+                    <tr class="space"></tr>
+
+                }
+            </table>
+        }
+
+   
+</div>

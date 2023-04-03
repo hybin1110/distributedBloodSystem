@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Blood Quality Management";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row p-3">
+            <h3><span class="authority-title">Blood Quality Tracking</span></h3>
+            <span class="authority-desc fw-bolder">Record blood pack testing result.</span>
+        </div>
+        <div class="row">
+            <div class="container card col-xl-10" style="background-color: #F0F0F0">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3">Please read carefully before updating the blood testing result into the system. : </div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <ul>
+                        <li>Blood+ system will use Blockchain technology to store and save the blood test result where the record is immutable once updated. </li>
+                        <li>Please do take note that the record cannot be <b>CHANGED</b> or <b>EDITED</b> anymore once you confirm to save the record.</li>
+                        <li>You are advised to check the details before confirming to save the record. </li>
+                        <li>Your user ID will be recorded while saving the record.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="container card col-xl-10">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3 authority-heading">Blood Pack Record</div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <form name="save-quality-record-form" class="justify-content-start">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label formimput-desc">Hospital Authority ID</label>
+                            <div class="col-sm-3 pt-2">
+                                @Session["userid"]
+                            </div>
+                            <label class="col-sm-2 col-form-label formimput-desc">Hospital Name</label>
+                            <div class="col-sm-3 pt-2">
+                                @Session["user"]
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <label for="rstDonorId" class="col-sm-3 col-form-label formimput-desc">Appointment ID</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" name="rstDonorId" id="rstDonorId" placeholder="Eg: 1043" ng-model="donorid" min="1">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <label for="rstResult" class="col-sm-3 col-form-label formimput-desc">Status</label>
+                            <div class="col-sm-3">
+                                <select class="form-select col-sm-3" id="rstResult" data-ng-options="o.name for o in options" ng-model="rst.result"></select>
+                            </div>
+                        </div>
+                        @*{{rst.result.name}}*@
+                        <div class="row d-flex justify-content-end">
+                            <button class="btn-authority col-sm-2" ng-click="savebloodquality(donorid, selectedOption)">SAVE</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+    </div>
+</div>
+

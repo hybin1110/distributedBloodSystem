@@ -1,0 +1,130 @@
+﻿@model IEnumerable<FYP_Blood.Models.Event>
+
+@{
+    //font awesome
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/event.css" rel="stylesheet" />
+</head>
+
+<div class="eventContent centralizedcontent">
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 2</div>
+            <img src="~/Content/images/Poster1.jpg" style="width:850px;height:530px;margin-left:-50px;margin-top:80px;">
+
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 2</div>
+            <img src="~/Content/images/Poster2.jpg" style="width:850px;height:530px;margin-left:-50px;margin-top:80px;">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </div>
+
+
+    <div class="wrap">
+        @using (Html.BeginForm("SearchResultLetter", "Event", FormMethod.Post))
+        {          
+            <div class="search">
+                <input type="text" class="searchTerm" autocomplete="off" name="eventSearch" id="eventSearch" placeholder="Search Event">
+                <button type="submit" class="searchButton" onclick= validate() @*"location.href='@Url.Action("SearchResult", "Event")'"*@>
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+            <script>
+            function validate() {
+                var seKey = document.getElementById("eventSearch").value;
+                if (seKey == "") {
+                    alert("REMINDER: The search field cannot be blank.");
+                    return false;
+                }
+                else
+                {
+                    window.location.href = '@Url.Action("SearchResult", "Event")';
+                }
+            }
+            </script>
+        }
+    </div>
+
+
+
+    <table class="searchResult" border="1">
+        @foreach (var ev in Model)
+        {
+            <tr class="space"></tr>
+
+            <tr class="eventTitle">
+                <td class="image" rowspan="4" width="100px" align="center">
+                    <img src="~/Content/images/BloodIcon1.png" />
+                </td>
+
+                <td width="400px"><b>@ev.e_location</b></td>
+
+                <td width="200px" rowspan="5" align="center">
+                    <button class="scheduleButton" type="button" style="cursor:pointer" onclick="location.href='@Url.Action("Appointment", "Appointment", new { id = ev.e_id })'">Schedule an Appointment</button>
+                </td>
+            </tr>
+
+            <tr class="detail">
+                <td>@ev.e_date.ToString("MMMM dd,yyyy (ddd)")  @ev.e_startTime.ToString("hh:mm tt") - @ev.e_endTime.ToString("hh:mm tt")</td>
+            </tr>
+
+            <tr class="detail">
+                <td>@ev.e_address</td>
+            </tr>
+
+            <tr class="space"></tr>
+            <tr class="space"></tr>
+        }
+
+    </table>
+
+</div>
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+
+</script>
+

@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "BloodLevel";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+}
+
+<div class="main-content" style="height:64rem">
+    <div class="container-fluid">
+        <div class="row p-3">
+            <h3><span class="authority-title">Blood Level Information Management</span></h3>
+            <span class="authority-desc fw-bolder"> Manage hospital blood stock supply information.</span>
+        </div>
+        <div class="row">
+            <div class="container card col-xl-10">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3 authority-heading">New Blood Level Information</div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <form name="bloodlvl" class="justify-content-start">
+                        <div class="row">
+                            <label for="hosNameDesc" class="col-sm-3 col-form-label formimput-desc">Hospital Name</label>
+                            <div class="col-sm-3">
+                                @Session["user"]
+                            </div>
+                            <label for="dateDesc" class="col-sm-2 col-form-label formimput-desc">Date</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="date" date='dd-MM-yyyy' placeholder="DD/MM/YYYY" id="bloodDate" name="bloodDate" ng-model="bloodlvldate">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <label for="bloodLvlDesc" class="col-sm-3 col-form-label formimput-desc">Blood Stock Quantity</label>
+                            <div class="col-sm-3">
+                                <input type="number" class="form-control" id="bloodQty" name="bloodQty" placeholder="Eg: 100" ng-model="bloodlvlqty" min="1" max="3000">
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <button class="btn-authority col-sm-2" ng-click="savebloodlvl(bloodlvldate, bloodlvlqty)">SAVE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="container card col-xl-10" style="padding: 10px;">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3 authority-heading">Current Blood Level Information</div>
+                    </div>
+                </div>
+                <div class="row"> 
+                    <table class="table" id="bloodlvltable" style="margin-top: 2.7rem;">
+                        <thead style="background-color: #ebebeb; color: black;">
+                            <tr>
+                                <th scope="col" style="font-weight:500;">No.</th>
+                                <th scope="col" style="font-weight:500;">ID</th>
+                                <th scope="col" style="font-weight:500;">Authority ID</th>
+                                <th scope="col" style="font-weight:500;">Department</th>
+                                <th scope="col" style="font-weight:500;">Quantity</th>
+                                <th scope="col" style="font-weight:500;">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="bloodlvl in bloodlvlrecord">
+                                <td scope="row">{{$index +1}}</td>
+                                <th>{{bloodlvl.bloodlvlid}}</th>
+                                <td>{{bloodlvl.userid}}</td>
+                                <td>{{bloodlvl.department}}</td>
+                                <td>{{bloodlvl.bloodqty}}</td>
+                                <td>{{bloodlvl.datecollected}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

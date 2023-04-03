@@ -1,0 +1,129 @@
+﻿@model FYP_Blood.Models.User
+    
+
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/editProfile.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<div class="page">
+    @using (Html.BeginForm("EditProfile", "Profile", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => m.userId)
+
+        <div class="frame">
+            <form action="">
+                <span class="title">Personal Information Modification</span><br /><br />
+
+                <div style="display:flex;">
+                    <div class="half">
+                        <i class="fa fa-tint"></i>
+                        <label for="bloodtype" class=""><b>Blood Type</b></label>
+
+                        @Html.ValidationMessageFor(m => m.bloodType, "", new { @class = "text-danger", style = "font-weight:bold;font-size:12px;" })
+                        <div class="textbox" style="background-color:white">
+
+                            @Html.RadioButtonFor(m => m.bloodType, "O", new { @class = "radioformat" })<b>O </b>
+                            @Html.RadioButtonFor(m => m.bloodType, "A", new { @class = "radioformat1" })<b>A</b>
+                            @Html.RadioButtonFor(m => m.bloodType, "B", new { @class = "radioformat1" })<b>B</b>
+                            @Html.RadioButtonFor(m => m.bloodType, "AB", new { @class = "radioformat1" })<b>AB</b>
+                        </div>
+                        <br />
+                    </div>
+
+                    <div class="half">
+                        <i class="fa fa-transgender" aria-hidden="true"></i>
+                        <label for="gender"><b>Gender</b></label>
+
+                        @Html.ValidationMessageFor(m => m.gender, "", new { @class = "text-danger", style = "font-weight:bold;font-size:12px;" })
+                        <div class="textbox" style="background-color:white">
+                            @Html.RadioButtonFor(m => m.gender, "Female", new { @class = "radioformat" })<b>Female</b>
+                            @Html.RadioButtonFor(m => m.gender, "Male", new { @class = "radioformat1" })<b>Male</b>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+
+                <div style="display:flex;">
+                    <div class="half">
+                        <i class="fa fa-id-badge" aria-hidden="true"></i>
+                        <label for="lnric"><b>NRIC No</b></label>
+                        @Html.ValidationMessageFor(m => m.nricNo, "", new { @class = "text-danger", style = "font-weight:bold;font-size:12px;"})
+                        <br />
+                        @Html.TextBoxFor(m => m.nricNo, new { @class = "textbox", autocomplete = "off", @placeholder = "Please fill in your NRIC No....", @type = "number", @maxlength = "12", @minlength = "12" })
+                    </div>
+
+                    <div class="half">
+                        <i class="fa fa-birthday-cake" aria-hidden="true"></i>
+                        <label for="dob"><b>Date of Birth</b></label>
+                        @Html.ValidationMessageFor(m => m.dob, "", new { @class = "text-danger", style = "font-weight:bold;font-size:12px;" })
+                        <br />
+                        @Html.TextBoxFor(m => m.dob, "{0:yyyy-MM-dd}", new { @class = "textbox", @type = "date", autocomplete = "off" })
+                        <br />
+                    </div>
+                </div>
+
+                <div style="display:flex;">
+                    <div class="half">
+                        <i class="fa fa-phone-square" aria-hidden="true"></i>
+                        <label for="contact"><b>Contact</b></label>
+                        @Html.ValidationMessageFor(m => m.contactNo, "", new { @class = "text-danger", style = "font-weight:bold;font-size:12px;" })
+                        <br />
+                        @Html.TextBoxFor(m => m.contactNo, new { @class = "textbox", autocomplete = "off", @placeholder = "Please fill in your contact no...."  ,@type = "number", @maxlength = "10", @minlength = "10" })
+                        <br />
+                    </div>
+
+                    <div class="half">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <label for="email"><b>Email</b></label>
+                        @Html.ValidationMessageFor(m => m.email, "", new { @class = "text-danger", style = "font-weight:bold;font-size:12px;" })
+                        <br />
+                        @Html.TextBoxFor(m => m.email, new { @class = "textbox", autocomplete = "off", @placeholder = "Please fill in your email...." })
+                        <br />
+                    </div>
+                </div>
+
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <label for="address"><b>Address</b></label>
+                @Html.ValidationMessageFor(m => m.address, "", new { @class = "text-danger", style = "font-weight:bold;font-size:12px;" })
+                <br />
+                @Html.TextBoxFor(m => m.address, new { @class = "textbox", autocomplete = "off", @placeholder = "Please fill in your address...." })
+                <br />
+                <button class="saveChangesBtn">SAVE CHANGES</button>
+
+                @* extra for now only; after combine nonid this *@
+                @*@Html.TextBoxFor(m => m.password, new { @class = "textbox", autocomplete = "off", @placeholder = "Please fill in your password...." })*@
+                @*@Html.TextBoxFor(m => m.seKey, new { @class = "textbox", autocomplete = "off", @placeholder = "Please fill in your seKey...." })*@
+
+            </form>
+        </div>
+    }
+
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+                        window.onload = function () {
+                                alert("@ViewBag.Message");
+                                window.location.href = '@Url.Action("Profile", "Profile")';
+                    };
+        </script>
+    }
+</div>
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#bloodtype").change(function () {
+            alert($("#bloodtype").value);
+        });
+    });
+</script>
+

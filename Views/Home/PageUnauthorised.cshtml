@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Access Denied";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@300&display=swap&family=Quicksand" rel="stylesheet">
+
+    <style type="text/css">
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        #errorpage {
+            background-image: url("../image/403.png");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-top: 60px;
+        }
+
+        #center {
+            position: absolute;
+            bottom: 5rem;
+            right: 263px;
+            font-size: 21px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="errorpage">
+        <div id="center">
+            @*<p>
+                Sorry <br />
+                You Don't Have The Permission To Acess This Resource. </p>*@
+        </div>
+    </div>
+
+</body>
+</html>

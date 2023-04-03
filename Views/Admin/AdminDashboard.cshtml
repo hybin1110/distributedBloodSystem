@@ -1,0 +1,246 @@
+﻿
+@{
+    ViewBag.Title = "AdminDashboard";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<div class="main-content">
+    <div class="container-fluid adminDashboard">
+
+        <!-- Page Heading -->
+        <div class="row p-3">
+            <h3><span class="authority-title">Overview</span></h3>
+        </div>
+
+        <div class="row" style="margin-left: 80px">
+            <!-- Partner Hospital Card -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-first shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="summary-card-header fw-bolder text-uppercase mb-1">
+                                    Partner Hospitals
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalPartner</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="bi bi-building fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registered Authority Card -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class=" card border-left-second shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="summary-card-header fw-bolder text-uppercase mb-1">
+                                    Registered Hospital Authority
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalAuthority</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="bi bi-people-fill fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="container card col-xl-10" style="padding:18px;">
+                <table class="table" id="hosAccTable" style="margin-top: 2.7rem;">
+                    <thead style="background-color: #ebebeb; color: black;">
+                        <tr>
+                            <th scope="col" style="font-weight:500;">No.</th>
+                            <th scope="col" style="font-weight:500;">ID</th>
+                            <th scope="col" style="font-weight:500;">Name</th>
+                            <th scope="col" style="font-weight:500;">Department</th>
+                            <th scope="col" style="font-weight:500;">Status</th>
+                            <th scope="col" style="font-weight:500;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="hosAcc in hosAccRecord">
+                            <td scope="row">{{$index +1}}</td>
+                            <th>{{hosAcc.userId}}</th>
+                            <td>{{hosAcc.name}}</td>
+                            <td>{{hosAcc.department}}</td>
+                            <td>{{hosAcc.status}}</td>
+                            <td><button id="btnEditAdminAcc" ng-click="editHos(hosAcc.userId, hosAcc.name, hosAcc.department, hosAcc.status)"><i class="bi bi-pencil-fill"></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="hosaccUpdateBox">
+        <div class="row p-3">
+            <h3><span class="authority-title">User Management - Hospital Authority</span></h3>
+            <span class="authority-desc fw-bolder"> Manage hospital authority account.</span>
+        </div>
+        <div class="row">
+            <div class="container card col-xl-10">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3 authority-heading">Account Details</div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <form name="updateHosDetail" id="updateHosDetail" class="justify-content-start">
+                        <div class="row">
+                            <label class="col-sm-3 col-form-label formimput-desc">User ID</label>
+                            <div class="col-sm-3">
+                                {{currentHosDetails.userId}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label for="updateHosName" class="col-sm-3 col-form-label formimput-desc">Hospital Name</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="text" name="updateHosName" ng-model="currentHosDetails.name">
+                            </div>
+                            <label for="updateHosDept" class="col-sm-2 col-form-label formimput-desc">Department</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="text" name="updateHosDept" ng-model="currentHosDetails.dept">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <label for="updateHosStatus" class="col-sm-3 col-form-label formimput-desc">Status</label>
+                            <div class="col-sm-3" ng-if="currentHosDetails.status=='Active'">
+                                <select class="form-select col-sm-3" id="updateHosStatus" ng-model="currentHosDetails.status">
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3" ng-if="currentHosDetails.status=='Inactive'">
+                                <select class="form-select col-sm-3" id="updateHosStatus" ng-model="currentHosDetails.status">
+                                    <option>Inactive</option>
+                                    <option>Active</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <button class="btn-authority col-sm-2" ng-click="updateHos()">SAVE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="container card col-xl-10">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3 authority-heading">Login Details</div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <form id="updateHosPass" class="justify-content-start">
+                        <div class="row">
+                            <label for="currentPass" class="col-sm-3 col-form-label formimput-desc">Current Password</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="password" id="currentPass" name="currentPass" ng-model="currentPass">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <label for="newHosPass" class="col-sm-3 col-form-label formimput-desc">Password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="newHosPass" name="newHosPass">
+                            </div>
+                            <label for="newHosConfirmPass" class="col-sm-2 col-form-label formimput-desc">Confirm Password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="newHosConfirmPass" name="newHosConfirmPass" ng-model="newHosPassword">
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-between">
+                            <a class="col-sm-2 hos-forgotpass" id="hos-forgotpass" onclick="openHosModalBox()">Forgot Password?</a>
+                            <button class="btn-authority col-sm-2" ng-click="updateHosPass(currentHosDetails.userId, newHosPassword)">SAVE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="myModal">
+        <!-- Modal content -->
+        <div class="modal-content pop-up-container" id="pop-up-container">
+            <div class="container form-container hosforgotpass-container" id="hosforgotpass-container">
+                <form class="mt-6 align-items-center" name="verifyadmin-form" id="verifyadminform">
+                    <row>
+                        <h1 class="d-flex justify-content-center" style="color: #BF214B">Account Verification</h1><br\>
+                            <p class="d-flex justify-content-center">Please enter admin account password for verification purpose.</p>
+                    </row>
+                    <row>
+                        <div class="d-flex justify-content-center col-xs-4">
+                            <input id="verifyadminpass" type="password" class="form-control mt-4 verifyadmin-pass" placeholder="Password" name="verifyadminpass" ng-model="verifyadminpass"/>
+                        </div>
+                    </row>
+                    <row class="d-flex justify-content-center mt-5">
+                        <button class="btn-modal btnReset" ng-click="validateadminpass(verifyadminpass)">Proceed</button>
+                    </row>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid" id="hosaccPassBox" style="display:none">
+        <div class="row p-3">
+            <h3><span class="authority-title">User Management - Hospital Authority</span></h3>
+            <span class="authority-desc fw-bolder"> Manage hospital authority account.</span>
+        </div>
+        <div class="row mt-4">
+            <div class="container card col-xl-10">
+                <div class="row">
+                    <div class="col">
+                        <div class="m-3 authority-heading">Login Details</div>
+                    </div>
+                </div>
+                <div class="row m-4">
+                    <form id="resetHosPass" class="justify-content-start" method="post">
+                        <div class="row">
+                            <label for="currentPass" class="col-sm-3 col-form-label formimput-desc">Secret Key</label>
+                            <div class="col-sm-3">
+                                <input class="form-control" type="number" id="secretKey" name="secretKey" ng-model="secretkey">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <label for="newHosPass" class="col-sm-3 col-form-label formimput-desc">Password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="resetNewHosPass" name="resetNewHosPass">
+                            </div>
+                            <label for="newHosConfirmPass" class="col-sm-2 col-form-label formimput-desc">Confirm Password</label>
+                            <div class="col-sm-3">
+                                <input type="password" class="form-control" id="resetNewHosConfirmPass" name="resetNewHosConfirmPass" ng-model="resetNewHosPassword">
+                            </div>
+                        </div>
+                        <div class="row pt-3">
+                            <div class="g-recaptcha" data-sitekey="6LdqXCYdAAAAACq4Jxv_dz9nazNa9zyW4gII2JFC"></div>
+                        </div>
+                        <div class="row d-flex justify-content-end">
+                            <button class="btn-authority col-sm-2" type="submit" value="submit" ng-click="resetUpdateHosPass(currentHosDetails.userId, resetNewHosPassword)">SAVE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $('#resetHosPass').on('submit', function (e) {
+        if (grecaptcha.getResponse() == "") {
+            e.preventDefault();
+            alert("Please Check Recaptcha Before You Proceed.");
+        } 
+    });
+</script>
+
+

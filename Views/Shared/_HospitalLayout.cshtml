@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - Dashboard</title>
+
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@300&display=swap&family=Quicksand&family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @*browser tab icon*@
+    <link rel="icon" href="~/logo_round.ico" />
+</head>
+<body ng-app="authorityapp" ng-controller="AuthorityController" class="show-sidebar" @*onload="display_ct();"*@>
+    @* SIDEBAR *@
+    <div class="sidenav">
+        <img src="~/image/homepage/logo.png" style="height:65px;margin-left:22px;margin-bottom:30px;" />
+
+        @* Dashboard *@
+        <div class="titleGroup">
+            <span class="sideNavtitle">Dashboard</span>
+            <div>
+                <a href="@Url.Action("Dashboard", "Hospital")" ng-click="disablesession()"><i class="fa fa-home subTitleICon" aria-hidden="true"></i><span class="subTitle">Overview</span></a>
+            </div>
+        </div>
+
+        @* Blood Donation*@
+        <div class="titleGroup">
+            <span class="sideNavtitle">Blood Donation</span>
+            <div class="bloodDonationLineSpace">
+                <a href="@Url.Action("ViewEvent", "Authority")" ng-click="disablesession()"><i class="fa fa-address-book subTitleICon" aria-hidden="true"></i><span class="subTitle">Event</span></a>
+                <a href="@Url.Action("ManageApptList", "Authority")"  ng-click="disablesession()"><i class="fa fa-list-ul subTitleICon" aria-hidden="true"></i><span class="subTitle">Appointment List</span></a>
+                <a href="@Url.Action("donorlist", "Authority")" ng-click="disablesession()"><i class="fa fa-user-circle subTitleICon" aria-hidden="true"></i><span class="subTitle">Donor List</span></a>
+           </div>
+        </div>
+
+        @* Blood Level Information *@
+        <div class="titleGroupDropdown">
+            <span class="sideNavtitle">Blood Level Information</span>
+            <div class="subTitleDropdown">
+                <button class="dropbtn" onclick="displayBloodLevelDropdown()">
+                    <i class="fa fa-bar-chart subTitleICon" aria-hidden="true" style="margin-left: 18px;"></i>
+                    Blood Level
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </button>
+                <div class="dropdown-content" id="dropdown-content-blood-level">
+                    <a href="@Url.Action("BloodLevel", "Hospital")" ng-click="disablesession()">Blood Level Management</a>
+                </div>
+            </div>
+        </div>
+
+        @* Report *@
+        <div class="titleGroup">
+            <span class="sideNavtitle">Report</span>
+            <div>
+                <a href="@Url.Action("ReportSelection", "Authority")" ng-click="disablesession()"><i class="fa fa-file-text-o subTitleICon" aria-hidden="true"></i><span class="subTitle">View Report</span></a>
+            </div>
+        </div>
+    </div>
+
+
+    @* HEADER *@
+<div class="hos-header">
+    <div class="hos-currentTime">
+        <p><span id="hos-time"></span></p>
+    </div>
+    @if (Session["user"] != null)
+    {
+        <div class="hos-header-right">
+            <span class=loggedOn>You're currently logged on as <b>@Session["user"]</b></span>
+            <br />
+          <a class="logout" href="@Url.Action("HospitalLogOut", "Hospital")" ng-click="disablesession()" style="color: #4b7dab"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="logout">Log Out</span></a>
+        </div>
+    }
+</div>
+
+    <div class="pageContent">
+        @RenderBody()
+    </div>
+
+    <footer>
+        @Scripts.Render("~/bundles/hosscript")
+        @RenderSection("scripts", required: false)
+
+
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    </footer>
+</body>
+</html>

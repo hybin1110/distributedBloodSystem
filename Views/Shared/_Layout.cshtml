@@ -1,0 +1,197 @@
+﻿@*<ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>*@
+
+@*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Blood+</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@300&display=swap&family=Quicksand&family=Nunito&display=swap" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @*browser tab icon*@
+    <link rel="icon" href="~/logo_round.ico" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+</head>
+<body ng-app="homeapp" ng-controller="HomeController">
+    <!----------------------------------------------------------- Navbar Top Bar ------------------------------------------------------------>
+    <div id="topbar" class="d-flex align-items-center fixed-top">
+        <div id="tb" class="d-flex fixed-top">
+            <div class="d-flex d-lg-flex social-links align-items-center">
+                @if (Session["user"] != null)
+                {
+                    <div class="user-dropdown">
+                        <button class="dropbtn" style="color: #FFEAC9; text-decoration:none;">
+                            Hi, @Session["user"]
+                        </button>
+                        <div class="user-dropdown-content">
+                            <a class="user-dropdown1" href="@Url.Action("Profile", "Profile")">User Profile</a>
+                            <a class="user-dropdown2" href="@Url.Action("UserLogOut", "Home")">Sign Out</a>
+                        </div>
+                    </div>
+
+                }
+                else
+                {
+                    <div type="button" class="signin" id="signinbtn" style="color: #FFEAC9; text-decoration:none;" onclick="openModalBox()"> Sign In</div>
+                }
+
+
+                <div class="mx-1">|</div>
+                <a href="@Url.Action("FAQ", "Home")" class="faq">FAQ</a>
+                <div class="mx-1">|</div>
+                <a href="@Url.Action("Contact", "Home")" class="contactus mr-2">Contact Us</a>
+                <a href="https://www.facebook.com/bloodplusmalaysia" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://m.me/bloodplusmalaysia" target="_blank" class="twitter"><i class="bi bi-messenger"></i></a>
+                <a href="https://www.instagram.com/bloodplusmalaysia/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-------------------------------------------------------------------- Navbar ------------------------------------------------------------->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center">
+            <!--Logo-->
+            <a href="@Url.Action("Index", "Home")" class="logo me-auto"><img src="~/image/homepage/logo.png" alt="" class="img-fluid"> </a>
+
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li class="dropdown">
+                        <span>Blood Donation  <i class="bi bi-chevron-down"></i></span>
+                        <ul>
+                            <li><a href="@Url.Action("Event", "Event")">Find a Blood Drive</a></li>
+                            <li><a href="@Url.Action("EligibilityCriteria", "Appointment")">Blood Donor Eligibility Criteria</a></li>
+                            <li><a href="@Url.Action("DonationBenefit", "Appointment")">Why You Should Donate Blood?</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="nav-link" href="@Url.Action("BloodLevel", "Home")">Blood Level</a></li>
+                    <li><a class="nav-link" href="@Url.Action("About", "Home")">About Us</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+            <a href="@Url.Action("Event", "Event")" class="appointment-btn">MAKE YOUR APPOINTMENT</a>
+        </div>
+    </header>
+
+    <!------------------------------------------------------------ Sign In Pop Up------------------------------------------------------ -->
+    <div class="modal" id="myModal">
+        <!-- Modal content -->
+        <div class="modal-content pop-up-container" id="pop-up-container">
+            <span class="close">&times;</span>
+            <div class="form-container sign-up-container">
+                <form class="signupform" name="signupform">
+                    <h1 style="color: #BF214B">Create Account</h1>
+                    <span>Use your email for registration</span>
+                    <div class="input-addon left-addon">
+                        <i class="glyphicon bi bi-person"></i><input type="text" name="signupname" placeholder="Name" ng-model="signupname" />
+                    </div>
+                    <div class="input-addon left-addon">
+                        <i class="glyphicon bi bi-envelope"></i><input type="email" name="signupemail" id="signupemail" placeholder="Email" ng-model="signupemail" />
+                    </div>
+                    <div class="input-addon left-addon">
+                        <i class="glyphicon bi bi-key"></i><input type="password" name="signuppass" id="signuppass" placeholder="Password" />
+                    </div>
+                    <div class="input-addon left-addon">
+                        <i class="glyphicon bi bi-file-earmark-lock2"></i><input type="password" name="signuppassword" placeholder="Confirm Password" ng-model="signuppassword" />
+                    </div>
+                    <button class="btn-modal" ng-click="signup(signupname,signupemail,signuppassword)">Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form class="signinform" name="signinform">
+                    <h1 style="color: #BF214B">Log Into Blood✔</h1>
+                    <span>Welcome Back</span>
+                    <div class="input-addon left-addon">
+                        <i class="glyphicon  bi-envelope"></i><input type="email" name="signinemail" placeholder="Email" ng-model="usersignin.email" />
+                    </div>
+                    <div class="input-addon left-addon">
+                        <i class="glyphicon bi bi-key"></i><input type="password" name="signinpassword" placeholder="Password" ng-model="usersignin.password" />
+                    </div>
+                    <a id="forgotpass-btn">Forgot your password?</a>
+                    <button class="btn-modal" ng-click="login()">{{btnsignin}}</button>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Back To Sign In</h1>
+                        <p>Keep connected with us by login</p>
+                        <button class="ghost" id="signIn">Sign In<i class="bi bi-arrow-right-short"></i></button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hi There!</h1>
+                        <p>Don't have an account? <br /> Enter your personal details and start the journey with us</p>
+                        <button class="ghost" id="signUp">Sign Up<i class="bi bi-arrow-right-short"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------------------------------------Reset Password------------------------------------------------------ -->
+            <div class="container form-container forgotpass-container">
+                <form class="mt-6 align-items-center" name="requestpassform">
+                    <row>
+                        <h1 class="d-flex justify-content-center" style="color: #BF214B">Reset Password</h1><br\>
+                            <p class="d-flex justify-content-center">Enter your registered email address and we'll send you the instructions for resetting your password.</p>
+                    </row>
+                    <row>
+                        <div class="d-flex justify-content-center col-xs-4">
+                            <input id="resetemail" type="text" class="form-control mt-4 resetpass-email" placeholder="Your E-Mail Address" name="resetemail" ng-model="resetemail" />
+                        </div>
+                    </row>
+                    <row class="d-flex justify-content-center mt-5">
+                        <button class="btn-modal btnReset" ng-click="forgotpass(resetemail)">Reset</button>
+                    </row>
+                    <row class="d-flex justify-content-center mt-6">
+                        <p id="forgotpass-backbtn">Back To Log In</p><i class="bi bi-arrow-right-short"></i>
+                    </row>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    @RenderBody()
+    <hr />
+    <!------------------------------------------------------------ Footer ------------------------------------------------------ -->
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Blood✔ Copyright Owned</p>
+    </footer>
+
+    <script>
+        /**
+         * Pop up sign in
+         */
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        //onclick function
+        function openModalBox() {
+            // When the user clicks the button, open the modal
+            modal.style.display = "block";
+        }
+    </script>
+
+
+    @Scripts.Render("~/bundles/mainscript")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

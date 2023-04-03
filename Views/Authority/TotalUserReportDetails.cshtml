@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FYP_Blood.Models.Event>
+
+<table>
+    <tr class="colName titlebackground">
+        <th class="contexttitle" style="padding-left:10px;padding-right:10px;">EVENT ID</th>
+        <th class="contexttitle">EVENT LOCATION</th>
+        <th class="contexttitle">EVENT DATE</th>
+        <th class="contexttitle">BLOOD TYPE</th>
+        <th class="contexttitle">BLOOE TYPE QTY</th>
+        <th class="contexttitle">TOTAL REGISTERED USER QTY</th>
+    </tr>
+
+    @*for each*@
+    @foreach (var ev in Model)
+    {
+        <tr class="colName">
+
+            <td class="context" style="width：10px">@ev.e_id</td>
+            <td class="context" style="width:400px;">@ev.e_location</td>
+            <td class="context" style="width:120px;">@ev.e_date.ToString("dd MMM yyyy")</td>
+            <td class="context" style="width:120px;">
+                @*blanck*@
+                <table>
+                    <tr><td style="padding-left: 45px; ">AB</td></tr>
+                    <tr><td style="padding-left: 45px; ">A</td></tr>
+                    <tr><td style="padding-left: 45px; ">B</td></tr>
+                    <tr><td style="padding-left: 45px; ">O</td></tr>
+                </table>
+            </td>
+            <td class="context" style="width:120px;">
+                <table>
+                    <tr><td style="padding-left: 48px;">@ev.ABcount</td></tr>
+                    <tr><td style="padding-left: 48px; ">@ev.Acount</td></tr>
+                    <tr><td style="padding-left: 48px; ">@ev.Bcount</td></tr>
+                    <tr><td style="padding-left: 48px; ">@ev.Ocount</td></tr>
+                </table>
+            </td>
+            <td class="context" style="width:230px;">@ev.registeredUserCount</td>
+
+        </tr>
+    }
+</table>

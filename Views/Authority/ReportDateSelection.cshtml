@@ -1,0 +1,39 @@
+﻿@model FYP_Blood.Models.Event
+
+
+
+@using (Html.BeginForm("TotalUserReport", "Authority", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td class="firstRow fixedItem">START DATE</td>
+            <td class="colon fixedItem">:</td>
+            <td>
+                @Html.TextBoxFor(m => m.ev_startdate, new { @class = "textbox", @type = "date", @id = "startdate", @style = "margin-left:-60px;margin-right:20px;" })
+            </td>
+            <td class="space"></td>
+            <td class="firstRow fixedItem">END DATE</td>
+            <td class="colon fixedItem">:</td>
+            <td>
+                @Html.TextBoxFor(m => m.ev_enddate, new { @class = "textbox", @type = "date", @id = "enddate", @style = "margin-left:-60px;margin-right:50px;" })
+            </td>
+            <td> <button class="viewReportBtn  btn-authority" style="width:185px;" type="submit" onclick="validate()">VIEW REPORT</button></td>
+        </tr>
+    </table>
+
+    <script>
+            function validate() {
+                var startdate = document.getElementById("startdate").value;
+                var enddate = document.getElementById("enddate").value;
+                if (startdate == "" || enddate == "") {
+                    alert("REMINDER: Start date or end date cannot be blank!");
+                    return false;
+                }
+                else
+                {
+                    window.location.href = '@Url.Action("TotalUserReport", "Authority")';
+                }
+            }
+    </script>
+}
+

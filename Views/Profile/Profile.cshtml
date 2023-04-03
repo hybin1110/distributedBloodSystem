@@ -1,0 +1,198 @@
+﻿@model FYP_Blood.Models.User
+
+
+@{
+
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/profile.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+
+@* TABLE 1:PROFILE *@
+<div class="page">
+
+    <table class="ProfileTable">
+        <tr>
+            <td class="profileTitleBar" colspan="6">
+                <div class="title"><b>Profile</b></div>
+
+                <button class="editbutton" onclick="location.href = '@Url.Action("EditProfile", "Profile")'">
+                    <i class="fa fa-pencil-square-o fa-lg" aria-hidden="true" style="margin-left: 655px; margin-top: 5px; cursor: pointer"></i>
+                </button>
+
+            </td>
+        </tr>
+
+
+        <tr class="personalDetails">
+            <td class="info">
+                <span>
+                    <i class="fa fa-user"></i>
+                    <b>Name</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td style="width:200px;"><b>@Html.DisplayFor(m => m.name)</b></td>
+
+
+
+            <td class="info">
+                <span>
+                    <i class="fa fa-tint"></i>
+                    <b>Blood Type</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td><b>@Html.DisplayFor(m => m.bloodType)</b></td>
+
+        </tr>
+
+
+        <tr class="personalDetails">
+            <td class="info">
+                <span>
+                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                    <b>NRIC No</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td><b>@Html.DisplayFor(m => m.nricNo)</b></td>
+
+
+            <td class="info">
+                <span>
+                    <i class="fa fa-transgender" aria-hidden="true"></i>
+                    <b>Gender</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td><b>@Html.DisplayFor(m => m.gender)</b></td>
+
+        </tr>
+
+
+        <tr class="personalDetails">
+            <td class="info">
+                <span>
+                    <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                    <b>DOB</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td><b>@Html.DisplayFor(m => m.dob)</b></td>
+
+
+            <td class="info">
+                <span>
+                    <i class="fa fa-phone-square" aria-hidden="true"></i>
+                    <b>Contact No</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td><b>@Html.DisplayFor(m => m.contactNo)</b></td>
+
+        </tr>
+
+        <tr>
+            <td class="info">
+                <span>
+                    <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    <b>Email</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td class="personalDetails"><b>@Html.DisplayFor(m => m.email)</b></td>
+
+
+            <td class="info">
+                <span>
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <b>Address</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td class="personalDetailsAdd"><b>@Html.DisplayFor(m => m.address, new { @class = "addresstxt" })</b></td>
+
+        </tr>
+
+    </table>
+
+    <table class="AppointmentTable">
+        <tr>
+            <td class="AppointmentTitleBar" colspan="4">
+                <div class="title"><b>Blood Donation Appointment</b></div>
+            </td>
+        </tr>
+
+        <tr class="appointmentDetails">
+            <td class="apptinfo">
+                <span>
+                    <b style="margin-left:16px;">Total quantity of blood donation</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            <td><b>@Html.DisplayFor(m => m.donationCount)</b></td>
+
+
+
+        </tr>
+
+        <tr class="appointmentDetails">
+            <td class="apptinfo">
+                <span>
+                    <b style="margin-left:16px;">Upcoming Appointment</b>
+                </span>
+            </td>
+            <td class="bulletspace"><b>:</b></td>
+            @if (Model.eventlocation == null)
+            {
+                <td><b>None</b></td>
+            }
+            else
+            {
+                <td><b>@Html.DisplayFor(m => m.eventlocation), @Model.eventdate.ToString("dd MMMM yyyy"), @Html.DisplayFor(m => m.eventTime)</b> </td>
+
+            }
+        </tr>
+        @Html.HiddenFor(m => m.appt_Id)
+        <tr>
+            <td colspan="3">
+                <button class="profileButton" onclick="location.href='@Url.Action("donationHistory","Profile")'">VIEW DONATION HISTORY</button>
+                <button class="profileButton" onclick="return cancelAppointment()">CANCEL APPOINTMENT</button>
+
+            </td>
+        </tr>
+
+        @if (ViewBag.Delete != null)
+        {
+            <script type="text/javascript">
+                        window.onload = function () {
+                                alert("@ViewBag.Delete");
+                                window.location.href = '@Url.Action("Profile", "Profile")';
+                    };
+            </script>
+        }
+    </table>
+
+    @if (Model.eventlocation != null)
+    {
+        <script type="text/javascript">
+        function cancelAppointment() {
+            if (confirm('Confirm to cancel appointment?')) {
+                location.href = '@Url.Action("DeleteAppt", "Profile",new { id = Model.appt_Id })';
+            }
+            return false;
+        }
+        </script>
+
+    }
+
+</div>
+

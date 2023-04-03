@@ -1,0 +1,166 @@
+﻿@model FYP_Blood.Models.Event
+@{
+    ViewBag.Title = "ModifyEvent";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/modifyEvent.css" rel="stylesheet" />
+
+    @* datecontrol *@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    @* Jquery Timepicker *@
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+
+</head>
+
+<div class="main-content">
+    <div class="page">
+        <div class="row p-3">
+            <h3><span class="authority-title">Modify Event</span></h3>
+            <span class="authority-desc fw-bolder">Modification of blood donation event.</span>
+        </div>
+
+        <div class="frame">
+            @using (Html.BeginForm("ModifyEvent", "Authority", FormMethod.Post))
+            {
+
+                <table>
+                    @* if not data dun want to display use hiddenfor, displayfor only display could not pass data to controller *@
+                    @Html.HiddenFor(m => m.e_id)
+                    @Html.HiddenFor(m => m.e_location)
+                    <tr>
+                        <td class="colwidth"><b class="coltitle">Event ID</b></td>
+                        <td style="width:18px;"><b>:</b></td>
+                        <td><span><b>@Html.DisplayFor(m => m.e_id)</b></span><br />
+                    </tr>
+
+                    <tr>
+                        <td class="colwidth"><b class="coltitle">Event Location</b></td>
+                        <td style="width:18px;"><b>:</b></td>
+                        <td><span><b>@Html.DisplayFor(m => m.e_location)</b></span><br />
+                    </tr>
+
+                    <tr>
+                        <td><b class="coltitle">Event Date</b></td>
+                        <td><b>:</b></td>
+                        <td>@Html.TextBoxFor(m => m.e_date, "{0:yyyy-MM-dd}", new { @class = "textbox", type = "date", @name = "eventDate", @id = "datecontrol" })</td>
+                        <td>@Html.ValidationMessageFor(m => m.e_date, "", new { @class = "text-danger" })</td>
+
+                    </tr>
+
+
+                    <tr>
+                        <td><b class="coltitle">Event Start Time</b></td>
+                        <td><b>:</b></td>
+                        <td>
+                            @Html.TextBoxFor(m => m.e_startTime, "{0:hh:mm tt}", new { @class = @"timepicker textbox", @id = "startTime" })
+                        </td>
+                        <td>@Html.ValidationMessageFor(m => m.e_startTime, "", new { @class = "text-danger" })</td>
+
+
+
+                    </tr>
+
+                    <tr>
+                        <td><b class="coltitle">Event End Time</b></td>
+                        <td><b>:</b></td>
+                        <td>
+                            @Html.TextBoxFor(m => m.e_endTime, "{0:hh:mm tt}", new { @class = @"timepicker textbox", @id = "endTime" })
+                        </td>
+                        <td>@Html.ValidationMessageFor(m => m.e_endTime, "", new { @class = "text-danger" })</td>
+                    </tr>
+
+                    <tr>
+                        <td><b class="coltitle">Event Slot Quantity</b></td>
+                        <td><b>:</b></td>
+
+                        <td>
+                            @Html.TextBoxFor(m => m.e_slotQty, new { @class = "textbox", @type = "number" })
+                        </td>
+                        <td>@Html.ValidationMessageFor(m => m.e_slotQty, "", new { @class = "text-danger" })</td>
+                    </tr>
+
+                    <tr>
+                        <td class="addressTitle"><b class="coltitle">Event Address</b></td>
+                        <td class="addressTitle"><b>:</b></td>
+                        <td>
+                            @Html.TextAreaFor(m => m.e_address, new { @class = "textboxAdd", @type = "text" })
+                        </td>
+                        <td style="width:150px">
+                            @Html.ValidationMessageFor(m => m.e_address, "", new { @class = "text-danger" })
+                            <button class="modifyEventBtn">SAVE EVENT</button>
+                        </td>
+                    </tr>
+                </table>
+            }
+
+
+            @if (ViewBag.Alert != null)
+            {
+                <script type="text/javascript">
+                    window.onload = function () {
+                        alert("@ViewBag.Alert");
+                        window.location.href = '@Url.Action("ModifyEvent", "Authority")';
+                    };
+                </script>
+            }
+
+
+
+
+            @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+                window.onload = function () {
+
+                         alert("@ViewBag.Message");
+                        window.location.href = '@Url.Action("ViewEvent", "Authority")';
+
+                        var data = sessionStorage.getItem('clicked');
+                        if (data == 'true') {
+                            $("#quality-records-container").css("display", "block");
+                            sessionStorage.setItem('clicked', true);
+                        }
+                    };
+                </script>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.timepicker').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 30,
+        minTime: '8:00am',
+        maxTime: '10:00pm',
+        startTime: '8:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+
+    });
+
+    $(document).ready(function () {
+
+        var dtToday = new Date();
+
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+
+        var maxDate = year + '-' + month + '-' + day;
+
+        $('#datecontrol').attr('min', maxDate);
+    })
+</script>

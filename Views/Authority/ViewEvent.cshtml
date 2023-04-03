@@ -1,0 +1,61 @@
+﻿@model IEnumerable<FYP_Blood.Models.Event>
+
+@{
+    ViewBag.Title = "ViewEvent";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/viewEvent.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<div class="main-content">
+    <div class="page">
+        <div class="row p-3">
+            <h3><span class="authority-title">Event</span></h3>
+            <span class="authority-desc fw-bolder">Prompt available blood donation infomation.</span>
+        </div>
+
+        <div>
+            <button class="crtEventBtn btn-authority" onclick="location.href='@Url.Action("CreateEvent", "Authority")'">CREATE EVENT</button>
+        </div>
+
+        <div>
+
+            <table class="viewEventTbl">
+                <tr class="colName titlebackground">
+                    <th class="contexttitle" style="padding-left:10px;padding-right:10px;">ID</th>
+                    <th class="contexttitle">Event Location</th>
+                    <th class="contexttitle">Date</th>
+                    <th class="contexttitle">Time</th>
+                    <th class="contexttitle">Slot Qty</th>
+                    <th class="contexttitle">Address</th>
+                    <th class="contexttitle"></th>
+
+                </tr>
+
+                @foreach (var ev in Model)
+                {
+                    <tr class="colName">
+                        <td class="context"><b>@ev.e_id</b></td>
+                        <td class="context" style="text-align:left;padding-left:10px;">@ev.e_location</td>
+                        <td class="context">@ev.e_date.ToString("dd MMM yyyy")</td>
+                        <td class="context" style="padding-left:5px;padding-right:5px;"> @ev.e_startTime.ToString("hh:mm tt") - @ev.e_endTime.ToString("hh:mm tt")</td>
+
+
+                        <td class="context">@ev.e_slotQty</td>
+                        <td class="addressContext">@ev.e_address</td>
+                        <td class="editIconFrame"><button class="editbutton" onclick="location.href='@Url.Action("ModifyEvent", "Authority", new { id = ev.e_id })'"><i class="fa fa-pencil-square-o fa-lg editIcon" aria-hidden="true"></i></button></td>
+                    </tr>
+                }
+
+
+            </table>
+
+        </div>
+    </div>
+</div>

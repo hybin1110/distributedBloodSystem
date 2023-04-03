@@ -1,0 +1,171 @@
+﻿@*@model WebApplication1.Models.Appointment*@
+@model FYP_Blood.Models.Appt
+
+    @{
+        ViewBag.Title = "EligibilityForm";
+    }
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/eligibilityForm.css" rel="stylesheet" />
+</head>
+
+    @* Bar Title *@
+<div class="page">
+
+    @* Eligibily Criteria *@
+    <div class="flexbox-container2">
+        <div class=" frame">
+            <span style="font-size:18px;margin-left:15px;"><b>Blood Donor Eligibility Form</b></span>
+            <div class="barline"></div>
+
+            <div class="left_col">
+                @using (Html.BeginForm("EligibilityForm", "Appointment", FormMethod.Post))
+                {
+                    @Html.HiddenFor(m => m.e_id)
+                    @Html.HiddenFor(m => m.userId)
+                    @Html.HiddenFor(m => m.apptTimeSlot)
+
+                    <div id="formQuestion">
+                        @* table 1 *@
+                        <table>
+                            <tr>
+                                <td rowspan="3" valign="top"><b> @Html.ValidationMessageFor(m => m.form_age, "", new { @class = "text-danger" })Age</b></td>
+                                <td rowspan="3" valign="top" class="colon">
+                                    <b>:</b>
+                                </td>
+
+                                <td>
+                                    <div>
+                                        @Html.RadioButtonFor(m => m.form_age, "Yes", new { @class = "radioformat", @name = "age" })<b>First time donor</b>: 18-60 years old
+                                        <br />
+                                        @Html.RadioButtonFor(m => m.form_age, "Yes1", new { @class = "radioformat", @name = "age" })<b>Regular donor</b>: 18-65 years old
+                                        <br />
+                                        @Html.RadioButtonFor(m => m.form_age, "No", new { @class = "radioformat", @name = "age" })<b>None of the above</b>
+                                        <br />
+                                    </div>
+                                </td>
+
+                                <td class="table1rightcol" rowspan="3" valign="top"><b>@Html.ValidationMessageFor(m => m.form_sleepHour, "", new { @class = "text-danger" })Had minimun of 5 hours sleep</b></td>
+                                <td rowspan="3" valign="top" class="colon"><b>:</b></td>
+                                <td>
+                                    <div style="margin-top:-20px;">
+                                        @Html.RadioButtonFor(m => m.form_sleepHour, "Yes", new { @class = "radioformat", @name = "sleephour" })<b>Yes</b>
+                                        <br />
+                                        @Html.RadioButtonFor(m => m.form_sleepHour, "No", new { @class = "radioformat", @name = "sleephour" })<b>No</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr></tr>
+
+                            <tr></tr>
+
+                            <tr>
+                                <td rowspan="4" valign="top"><span style="margin-top:20px;"><b>@Html.ValidationMessageFor(m => m.form_weight, "", new { @class = "text-danger" })Weight</b></span></td>
+                                <td rowspan="4" valign="top" class="colon"><b>:</b></td>
+                                <td>
+                                    <div>
+                                        @Html.RadioButtonFor(m => m.form_weight, "Yes", new { @class = "radioformat", @name = "weight" })<b>45 kg and above</b>
+                                        <br />
+                                        @Html.RadioButtonFor(m => m.form_weight, "No", new { @class = "radioformat", @name = "weight" })<b>Below 45kg</b>
+                                    </div>
+                                </td>
+
+                                <td rowspan="2" valign="top" class="table1rightcol"><b>@Html.ValidationMessageFor(m => m.form_meal, "", new { @class = "text-danger" })Had a meal before blood donation</b></td>
+                                <td rowspan="2" valign="top" class="colon"><b>:</b></td>
+                                <td style="margin-left:-10px;">
+                                    <div>
+                                        <div>
+                                            @Html.RadioButtonFor(m => m.form_meal, "Yes", new { @class = "radioformat", @name = "meal" })<b>Yes</b>
+                                            <br />
+                                            @Html.RadioButtonFor(m => m.form_meal, "No", new { @class = "radioformat", @name = "meal" })<b>No</b>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr></tr>
+
+                            <tr>
+                                <td rowspan="2"></td>
+                                <td rowspan="2" valign="top" class="table1rightcol"><b>@Html.ValidationMessageFor(m => m.form_illness, "", new { @class = "text-danger" })No medical illness</b></td>
+                                <td rowspan="2" valign="top" class="colon"><b>:</b></td>
+                                <td>
+                                    <div>
+                                        @Html.RadioButtonFor(m => m.form_illness, "Yes", new { @class = "radioformat", @name = "illness" })<b>Yes</b>
+                                        <br />
+                                        @Html.RadioButtonFor(m => m.form_illness, "No", new { @class = "radioformat", @name = "illness" })<b>No</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr></tr>
+                        </table>
+
+                        @* table 2 *@
+                        <table>
+                            <tr style="height:20px;">
+                                <td valign="top"><b>@Html.ValidationMessageFor(m => m.form_highRisk, "", new { @class = "text-danger" })Not involved in high risk activity</b> <br />(Eg.Homesexual, Bisexual, Drug, Change in sexual partner)</td>
+                                <td valign="top"><b>:</b></td>
+                                <td valign="top">@Html.RadioButtonFor(m => m.form_highRisk, "Yes", new { @class = "radioformat", @name = "risk" })<b>Yes</b></td>
+                                <td valign="top">@Html.RadioButtonFor(m => m.form_highRisk, "No", new { @class = "radioformat", @name = "risk" })<b>No</b></td>
+
+                            </tr>
+
+                            <tr style="height:50px;">
+                                <td><b>@Html.ValidationMessageFor(m => m.form_latestDonation, "", new { @class = "text-danger" })Last whole blood donation was 3 months ago</b></td>
+                                <td style="margin-left:-20px;"><b>:</b></td>
+                                <td>@Html.RadioButtonFor(m => m.form_latestDonation, "Yes", new { @class = "radioformat", @name = "lastdonate" })<b>Yes</b></td>
+                                <td>@Html.RadioButtonFor(m => m.form_latestDonation, "No", new { @class = "radioformat", @name = "lastdonate" })<b>No</b></td>
+
+                            </tr>
+
+
+
+                        </table>
+
+                        <div style="margin-top:5px;"><b>@Html.ValidationMessageFor(m => m.form_femaleReq, "", new { @class = "text-danger" })For female donor,(not pregnant, last menstrual period was more than 3 days ago, and not breastfeeding):</b></div>
+                        @Html.RadioButtonFor(m => m.form_femaleReq, "Yes", new { @class = "radioformat", @name = "female" })<b>Yes</b>
+                        @Html.RadioButtonFor(m => m.form_femaleReq, "No", new { @class = "radioformat", @name = "female" })<b>No</b>
+                        @Html.RadioButtonFor(m => m.form_femaleReq, "Yes1", new { @class = "radioformat", @name = "female" })<b>None Female</b>
+                        <br />
+
+
+                        <div class="reminder"><b>*Kindly bring your donor card, driver's license or two other forms of identification (Eg.Passport, Military ID, Employee or Student ID with photo)</b></div>
+                        <span id="lblMessage" style="display: none; color: #BF214B; font-weight: bold;margin-top:10px;">WARNING: Please complete the form with option given.</span>
+                        <span id="spnError" class="error" style="display: none">Please complete the form with option given.</span>
+
+                        <div class="buttonPosition">
+                            <button class="submitButton" type="submit" id="btnSubmit" onclick="return Validate()">SUBMIT</button>
+                        </div>
+
+                    </div>
+                }
+
+                @if (ViewBag.Success != null)
+                {
+                    <script type="text/javascript">
+                        window.onload = function () {
+                                alert("@ViewBag.Success");
+                                window.location.href = '@Url.Action("Profile", "Profile")';
+                    };
+                    </script>
+                }
+
+                @if (ViewBag.Fail != null)
+                {
+                    <script type="text/javascript">
+                        window.onload = function () {
+                                alert("@ViewBag.Fail");
+                                window.location.href = '@Url.Action("Event", "Event")';
+                    };
+                    </script>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,35 @@
+﻿@using ReportViewerForMvc
+
+@{
+    ViewBag.Title = "BloodReport";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+}
+
+<div class="main-content" style="height:64rem">
+    <div class="row p-3">
+        <h3><span class="authority-title">Total Collected Blood Pack</span></h3>
+        <span class="authority-desc fw-bolder">Summary report of collected blood pack</span>
+    </div>
+    <div class="container-fluid">
+        @using (Html.BeginForm("BloodReport", "Hospital", FormMethod.Post))
+        {
+
+            <div class="row mb-4">
+                <div class=" col-3">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" name="startDate" />
+                </div>
+                <div class="col-3">
+                    <label for="endDate">End Date</label>
+                    <input type="date" class="form-control" id="endDate" name="endDate" />
+                </div>
+                <button type="submit" class="btn btn-primary col-3 viewReportBtn mt-4">SUBMIT</button>
+            </div>
+        }
+   </div>
+
+    @if (ViewBag.ReportViewer != null)
+    {
+        @Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+    }
+</div>

@@ -1,0 +1,105 @@
+﻿@model FYP_Blood.Models.Event
+
+@{
+    ViewBag.Title = "Appointment";
+
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/appointment.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    @* Jquery Timepicker *@
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+</head>
+
+<div class="page">
+
+    @using (Html.BeginForm("Appointments", "Appointment", FormMethod.Post))
+    {
+        if (ViewBag.Login != null)
+        {
+            <script type="text/javascript">
+                window.onload = function() {
+                alert("@ViewBag.Login");
+                window.location.href = '@Url.Action("Index", "Home")';
+
+                };
+            </script>
+        }
+        else
+        {
+            @Html.HiddenFor(m => m.e_id) ;
+            <div class="locationPic">
+                <img src="@Url.Content(Model.e_locationPic)" width="250" height="250" />
+            </div>
+            <br />
+
+            @* "Appointment Details" bar *@
+            <div class="flexbox-container">
+                <div class="flexbox-item">
+                    <h10><b>Appointment Detail</b></h10>
+                </div>
+            </div>
+
+
+            <div class="flexbox-container1">
+                <div class="flexbox-item2">
+                    <span style="font-size:17px;"><b>@Html.DisplayFor(m => m.e_location)</b></span>
+                    <br />
+
+                    <span style="font-size:15px;">
+                        @Model.e_date.ToString("MMMM dd,yyyy (ddd)") @Html.DisplayFor(m => m.e_startTime) - @Html.DisplayFor(m => m.e_endTime)
+                    </span>
+
+                    <br /><br /><span style="font-size:15px;font-weight:bold">Please select time slot for donation:</span><br />
+
+                    @Html.TextBoxFor(m => m.e_startTime, "{0:hh:mm tt}", new { @class = @"timepicker textbox", @id = "startTime", @style = "width:150px;" })
+                    <span class="fa fa-sort-desc" style="margin-left:-30px;margin-right:100px;margin-bottom:10px;"></span>
+
+                    @Html.TextBoxFor(m => m.e_endTime, "{0:hh:mm tt}", new { @id = "endTime", @class = "hidetextbox" })<br />
+
+                    <button class="proceedBtn" type="submit">Proceed</button>
+
+                </div>
+            </div>
+        }
+
+
+    }
+
+    @if (ViewBag.Fail != null)
+    {
+        <script type="text/javascript">
+                        window.onload = function () {
+                                alert("@ViewBag.Fail");
+                                window.location.href = '@Url.Action("Event", "Event")';
+                        };
+        </script>
+    }
+    else if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+                        window.onload = function () {
+                            alert("@ViewBag.Message");
+                        };
+        </script>
+    }
+  
+</div>
+
+<script>
+    $('.timepicker').timepicker({
+        timeFormat: 'h:mm p',
+        interval: 30,
+        minTime: document.getElementById("startTime").value,
+        maxTime: document.getElementById("endTime").value,
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true,
+        
+    });
+</script>

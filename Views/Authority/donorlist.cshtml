@@ -1,0 +1,108 @@
+﻿@model IEnumerable<FYP_Blood.Models.User>
+
+@{
+    ViewBag.Title = "Donor List";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/donorlist.css" rel="stylesheet" />
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>*@
+</head>
+
+<div class="main-content">
+    <div class="div1">
+        <div class="row p-3">
+            <h3><span class="authority-title">Donor List</span></h3>
+            <span class="authority-desc fw-bolder">Prompt details of the donor.</span>
+        </div>
+
+        <div>
+            @*<button id="btnClick" class="DecryptBtn" onclick="location.href='@Url.Action("popoutform", "Authority")'">Decrypt Data</button>*@
+            <button id="btnClick" class="DecryptBtn btn-authority" onclick="switchVisible();">DECRYPT DATA</button>
+
+        </div>
+
+        <div id="Div1">
+
+            <table class="donorListTbl">
+                <tr class="colName titlebackground">
+                    <th class="contexttitle" style="padding-left:10px;padding-right:10px;">User ID</th>
+                    <th class="contexttitle">Name</th>
+                    <th class="contexttitle">IC</th>
+                    <th class="contexttitle">Contact</th>
+                    <th class="contexttitle">Email</th>
+                    <th class="contexttitle">Gender</th>
+                    <th class="contexttitle">Blood Type</th>
+                </tr>
+
+                @foreach (var us in Model)
+                {
+                    <tr>
+                        <td class="context"><b>@us.userId<b></td>
+                        <td class="context">@us.name</td>
+                        <td class="context">@us.nricNo</td>
+                        <td class="context">@us.contactNo</td>
+                        <td class="context">@us.email</td>
+                        <td class="context">@us.gender</td>
+                        <td class="context">@us.bloodType</td>
+
+                    </tr>
+                }
+            </table>
+
+        </div>
+    </div>
+
+
+    <div id="Div2" class="Div2">
+        @using (Html.BeginForm("popoutformresult", "Authority", FormMethod.Post))
+        {
+            <span style="font-weight: bold; font-size: 18px; font-family: 'Poppins',sans-serif; color: #03506F">Data Decryption</span><br />
+            <span style="font-family: 'roboto',sans-serif; font-size: 14px;">Please enter your secret key to decrypted the donor data.</span><br />
+            <label style="font-family: 'Poppins',sans-serif; font-size: 14px; font-weight: bold;margin-top:28px;">Secret Key:</label>
+            <input class="textbox" type="password" autocomplete="off" name="seKey" id="seKey" placeholder="Secret key required..."><br />
+            <button type="submit" class="submitbtn btn-authority" @*onclick="location.href='@Url.Action("popoutformresult", "Authority")'"*@ onclick="validate()">
+                SUBMIT
+            </button>
+
+
+            <script>
+            function validate() {
+                var seKey = document.getElementById("seKey").value;
+                if (seKey == "") {
+                    alert("REMINDER: Secret key is obligatory!");
+                    return false;
+                }
+                else
+                {
+                    window.location.href = '@Url.Action("popoutformresult", "Authority")';
+                }
+            }
+            </script>
+
+
+        }
+
+
+
+    </div>
+</div>
+<script>
+    function switchVisible() {
+            if (document.getElementById('Div1')) {
+
+                if (document.getElementById('Div1').style.display == 'block')
+                {
+                    document.getElementById('Div1').style.display = 'block';
+                    document.getElementById('Div2').style.display = 'block';
+                }
+                else
+                {
+                    document.getElementById('Div1').style.display = 'block';
+                    document.getElementById('Div2').style.display = 'block';
+                }
+            }
+        }
+</script>

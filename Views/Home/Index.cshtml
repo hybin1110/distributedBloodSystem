@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<!-- ======= Homepage Top -Welcome- Section ======= -->
+<section id="homepage-top" class="d-flex align-items-center justify-content-center">
+    <div class="hp-top-container">
+        <h1>WELCOME TO BLOOD✔</h1>
+        <h2>A Distributed Blood Donation Network.</h2>
+        @using (Html.BeginForm("SearchResult", "Event", FormMethod.Post))
+        {
+            <div class="input-group">
+                <div class="col-xs-2">
+                    <input type="number" maxlength="5" class="form-control find-appointment" name="eventSearch" id="eventSearch" placeholder="Enter Zip Code" />
+                </div>
+                <span class="input-group-btn"><button class="btn btn-primary btn-find-appointment" type="submit" id="eventSearch-index" onclick="validate()">FIND BLOOD DONATION EVENT</button></span>
+            </div>
+
+            <script>
+            function validate() {
+                var seKey = document.getElementById("eventSearch").value;
+                if (seKey == "") {
+                    alert("REMINDER: The search field cannot be blank.");
+                    return false;
+                }
+                else
+                {
+                    window.location.href = '@Url.Action("Event", "Home")';
+                }
+            }
+            </script>
+        }
+    </div>
+</section>
+
+<!-- ======= Homepage Quick Navigation ======= -->
+<section id="quick-navi" class="quick-navi">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 d-flex align-items-stretch">
+                <div class="content">
+                    <h3>Take<br /> Action<br /> Save Lives</h3>
+                </div>
+            </div>
+            <div class="col-lg-9 d-flex align-items-stretch">
+                <div class="icon-boxes d-flex align-items-end">
+                    <div class="row">
+                        <div class="col-xl-4 d-flex align-items-stretch">
+                            <div class="icon-box mt-4 mt-xl-0">
+                                <h4>Find Nearby<br /> Blood Drives Today</h4>
+                                <p>
+                                    At Blood✔, we connect people with blood donation event organizers by matching user's preferred location.
+                                    Make seamless blood donation appointment after selecting the preferred blood drive today.
+                                </p>
+                                <div class="d-flex justify-content-end text-center quick-navi-link">
+                                    <a href="@Url.Action("Event", "Event")" class="more-btn"><i class="bi bi-arrow-right-short" style="color: #BF214B"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 d-flex align-items-stretch">
+                            <div class="icon-box mt-4 mt-xl-0">
+                                <h4>View <br /> Blood Level</h4>
+                                <p>
+                                    Get yourself updated with the latest blood level. Blood donation is crucial. Blood✔ aimed to raise awareness
+                                    about severity of blood shortages in the country.
+                                </p>
+                                <div class="d-flex justify-content-end text-center quick-navi-link">
+                                    <a href="@Url.Action("BloodLevel", "Home")" class="more-btn"><i class="bi bi-arrow-right-short" style="color: #BF214B"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 d-flex align-items-stretch">
+                            <div class="icon-box mt-4 mt-xl-0">
+                                <i class="bx bx-images"></i>
+                                <h4>Hospital <br /> Partners Portal</h4>
+                                <p>Login as a hospital partner to track patient's blood quality.</p>
+                                @if (Session["user"] != null)
+                                {
+                                    <div class="d-flex justify-content-end text-center quick-navi-link">
+                                        <div class="signin" style="color: #FFEAC9; text-decoration:none;">
+                                            <i class="bi bi-arrow-right-short" style="color: #BF214B" onclick="alert('Oops! Unauthorized Action.');"></i>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="d-flex justify-content-end text-center quick-navi-link">
+                                        <div class="signin" id="signinbottombtn" style="color: #FFEAC9; text-decoration:none;">
+                                            <i class="bi bi-arrow-right-short" style="color: #BF214B" onclick="openModalBox();"></i>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        var modal = document.getElementById("myModal");
+        //var btnBottom = document.getElementById("signinbottombtn")
+        var span = document.getElementsByClassName("close")[0];
+
+        //function showAlert() {
+        //    alert("hello");
+        //}
+
+        //btnBottom.addEventListener("click", openModalBox);
+        // When the user clicks the button, open the modal
+        function openModalBox() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                console.log({ event });
+                modal.style.display = "none";
+            }
+        }
+
+        // When the user clicks the button, open the modal
+    
+
+    });
+</script>

@@ -1,0 +1,44 @@
+﻿@model FYP_Blood.Models.MultipleModelReportEvent
+
+@{
+    ViewBag.Title = "totalUserReport";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/totalUserReport.css" rel="stylesheet" />
+</head>
+
+<div class="page">
+    <div class="heading">
+        <span class="title">Total User Registered for Blood Donation</span><br />
+        <span class="desc">Prompt the report of donor data who registered for blood donation.</span><br /><br />
+    </div>
+
+    <div class="frame1">
+        <div style="font-size:22px;text-align:center"><b>Blood+ Blood Donor System</b></div>
+        <div style="font-size:15px;text-align:center">Total User Registered for Blood Donation</div>
+
+        <div class="eventTableList">
+            <div class="frame">
+                @*table*@
+                @Html.Partial("ReportDateSelection", Model.EventDate)
+
+                @if (Model.EventDetails.Count() > 0)
+                {
+                @Html.Partial("TotalUserReportDetails", Model.EventDetails);
+                }
+            else
+            {
+                <span style="font-family:'Segoe UI';font-size:13px;">No records found!</span>
+            }
+
+
+            </div>
+    </div>
+
+
+</div>
+

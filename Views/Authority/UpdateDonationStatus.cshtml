@@ -1,0 +1,84 @@
+﻿@model FYP_Blood.Models.Appointment
+@{
+    ViewBag.Title = "UpdateDonationStatus";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+
+}
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href="~/Content/Css/updateDonationStatus.css" rel="stylesheet" />
+</head>
+
+<div class="main-content">
+    <div>
+        <div class="row p-3">
+            <h3><span class="authority-title">Blood Quality Tracking</span></h3>
+            <span class="authority-desc fw-bolder">Make admendment of the status of donor.</span>
+        </div>
+
+
+        <div class="frame">
+            @using (Html.BeginForm("UpdateDonationStatus", "Authority", FormMethod.Post))
+            {
+                @Html.HiddenFor(m => m.apptId)
+                @Html.HiddenFor(m => m.eventdate)
+                @Html.HiddenFor(m => m.apptTimeSlot)
+                <table>
+                    <tr>
+                        <td class="colwidth"><b class="coltitle">Donor ID</b></td>
+                        <td style="width:18px;"><b>:</b></td>
+                        <td><span><b>@Html.DisplayFor(m => m.apptId)</b></span><br />
+                    </tr>
+
+                    <tr>
+                        <td class="colwidth"><b class="coltitle">Donation Date</b></td>
+                        <td style="width:18px;"><b>:</b></td>
+                        <td><span><b>@Html.DisplayFor(m => m.eventdate)</b></span><br />
+                    </tr>
+
+
+                    <tr>
+                        <td class="colwidth"><b class="coltitle">Donation Date</b></td>
+                        <td style="width:18px;"><b>:</b></td>
+                        <td><span><b>@Html.DisplayFor(m => m.e_location)</b></span><br />
+                    </tr>
+
+                    <tr>
+                        <td class="colwidth"><b class="coltitle">Donation Time Slot</b></td>
+                        <td style="width:18px;"><b>:</b></td>
+                        <td><span><b>@Html.DisplayFor(m => m.apptTimeSlot)</b></span><br />
+                    </tr>
+
+                    <tr>
+                        <td class="colwidth"><b class="coltitle">Donation Status</b></td>
+                        <td style="width:18px;"><b>:</b></td>
+                        <td>
+                            @Html.RadioButtonFor(m => m.status, "Pending", new { @class = "radioformat" })<b>Pending</b>
+                            @Html.RadioButtonFor(m => m.status, "Completed", new { @class = "radioformat1" })<b>Completed</b>
+                            <br />
+                    </tr>
+
+                    <tr>
+                        <td style="width:150px" colspan="3">
+                            <button class="saveChangesBtn" type="submit">SAVE CHANGES</button>
+                        </td>
+                    </tr>
+
+
+                </table>
+            }
+
+            @if (ViewBag.Message != null)
+            {
+                <script type="text/javascript">
+                        window.onload = function () {
+                                alert("@ViewBag.Message");
+                                window.location.href = '@Url.Action("ManageApptList", "Authority")';
+                    };
+                </script>
+            }
+        </div>
+
+    </div>
+</div>

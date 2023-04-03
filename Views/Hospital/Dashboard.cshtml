@@ -1,0 +1,89 @@
+﻿@model IEnumerable<FYP_Blood.Models.Event>
+
+@{
+    ViewBag.Title = "AuthorityDashboard";
+    Layout = "~/Views/Shared/_HospitalLayout.cshtml";
+    @*<link href="~/Content/Css/dashboardOverview.css" rel="stylesheet" />*@
+}
+<div class="main-content">
+    <div class="container-fluid">
+
+        <!-- Page Heading -->
+        <div class="row p-3">
+            <h3><span class="authority-title">Overview</span></h3>
+        </div>
+
+        <div class="row" style="margin-left: 212px">
+            <!-- Dashboard Event Card -->
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-first shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="summary-card-header fw-bolder text-uppercase mb-1">
+                                    Ongoing Event
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@Model.Count()</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="bi bi-calendar-check fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Blood Pack Card -->
+            @*<div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-second shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="summary-card-header fw-bolder text-uppercase mb-1">
+                                    Blood Pack Received
+                                </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">1000</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="bi bi-bookmarks fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+        <div>
+            <table class="eventTable" style="width:80%; margin-top:10px;" border ="1">
+                @foreach (var ev in Model)
+                {
+                    <tr class="space"></tr>
+                    <tr class="eventTitle">
+                        <td class="image" rowspan="4" width="70px" align="center">
+                            <img src="~/Content/images/BloodIcon1.png" />
+                        </td>
+
+                        <td width="400px" style="font-size:17px;"><b>@ev.e_location</b></td>
+
+                        <td width="200px" rowspan="5" align="center">
+                            @ev.registeredUserCount Registered
+                        </td>
+                    </tr>
+
+                    <tr class="detail">
+                        <td>@ev.e_date.ToString("MMMM dd,yyyy (ddd)")  @ev.e_startTime.ToString("hh:mm tt") - @ev.e_endTime.ToString("hh:mm tt")</td>
+                    </tr>
+
+                    <tr class="detail">
+                        <td>@ev.e_address</td>
+                    </tr>
+                    <tr class="space"></tr>
+                    <tr class="space"></tr>
+
+                }
+
+            </table>
+        </div>
+    </div>
+
+</div>
